@@ -22,10 +22,32 @@ export default function Hero() {
         justifyContent: 'center',
         padding: '80px 24px 48px',
         overflow: 'hidden',
-        background: 'var(--bg)',
+        background: '#000',
       }}
     >
-      {/* Radial accent glow behind headline */}
+      {/* Background photo — drop any running image at public/hero-bg.jpg */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          backgroundImage: 'url(/hero-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+        }}
+      />
+
+      {/* Dark overlay — keeps all text readable */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          background: 'linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.82) 100%)',
+        }}
+      />
+
+      {/* Accent glow pulse */}
       <div
         className="lime-glow-pulse"
         style={{
@@ -36,9 +58,9 @@ export default function Hero() {
           width: 700,
           height: 500,
           borderRadius: '50%',
-          background: 'radial-gradient(ellipse at center, rgba(249,115,22,0.22) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(249,115,22,0.18) 0%, transparent 70%)',
           pointerEvents: 'none',
-          zIndex: 0,
+          zIndex: 2,
         }}
       />
 
@@ -46,7 +68,7 @@ export default function Hero() {
       <div
         style={{
           position: 'relative',
-          zIndex: 1,
+          zIndex: 3,
           maxWidth: 780,
           width: '100%',
           display: 'flex',
@@ -106,7 +128,7 @@ export default function Hero() {
             lineHeight: 1.0,
             letterSpacing: '-0.02em',
             textTransform: 'uppercase',
-            color: 'var(--text)',
+            color: '#F2F2F7',
             margin: '0 0 48px',
           }}
         >
@@ -189,9 +211,9 @@ export default function Hero() {
               </div>
             ))}
           </div>
-          <span style={{ color: 'var(--text-muted)', fontSize: 14 }}>
+          <span style={{ color: 'rgba(242,242,247,0.7)', fontSize: 14 }}>
             Join{' '}
-            <span style={{ color: 'var(--text)', fontWeight: 600 }}>1,200+ runners</span>{' '}
+            <span style={{ color: '#F2F2F7', fontWeight: 600 }}>1,200+ runners</span>{' '}
             already in line
           </span>
         </div>

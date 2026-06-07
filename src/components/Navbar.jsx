@@ -22,8 +22,8 @@ export default function Navbar() {
         right: 0,
         zIndex: 50,
         transition: 'background 0.3s ease, border-bottom 0.3s ease',
-        background: scrolled ? 'rgba(0,0,0,0.92)' : 'transparent',
-        borderBottom: scrolled ? '1px solid var(--border)' : 'none',
+        background: scrolled ? 'rgba(26,36,56,0.96)' : 'transparent',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : 'none',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
       }}
@@ -47,7 +47,7 @@ export default function Navbar() {
             fontWeight: 900,
             fontSize: 22,
             letterSpacing: '0.08em',
-            color: 'var(--text)',
+            color: '#F2F2F7',
             textTransform: 'uppercase',
             userSelect: 'none',
           }}

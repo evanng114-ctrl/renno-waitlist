@@ -173,7 +173,7 @@ export default function Hero() {
                   height: 30,
                   borderRadius: '50%',
                   background: color,
-                  border: '2px solid var(--bg)',
+                  border: '2px solid var(--navy)',
                   marginLeft: i === 0 ? 0 : -10,
                   display: 'flex',
                   alignItems: 'center',

@@ -35,7 +35,7 @@ function Stat({ prefix = '', suffix = '', target, label, note }) {
           fontSize: 'clamp(13px, 1.8vw, 15px)',
           textTransform: 'uppercase',
           letterSpacing: '0.12em',
-          color: 'var(--text)',
+          color: '#F2F2F7',
           marginBottom: 4,
         }}
       >
@@ -45,7 +45,7 @@ function Stat({ prefix = '', suffix = '', target, label, note }) {
         <div
           style={{
             fontSize: 12,
-            color: 'var(--text-muted)',
+            color: 'rgba(242,242,247,0.5)',
             letterSpacing: '0.04em',
           }}
         >
@@ -60,9 +60,9 @@ export default function StatsBar() {
   return (
     <section
       style={{
-        background: 'var(--surface)',
-        borderTop: '1px solid var(--border)',
-        borderBottom: '1px solid var(--border)',
+        background: 'var(--navy)',
+        borderTop: '1px solid rgba(255,255,255,0.07)',
+        borderBottom: '1px solid rgba(255,255,255,0.07)',
       }}
     >
       <div
@@ -80,14 +80,14 @@ export default function StatsBar() {
           label="Lost if you hit your goal"
           note="Your stake is always protected"
         />
-        <div style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
+        <div style={{ width: 1, background: 'rgba(255,255,255,0.1)', alignSelf: 'stretch', margin: '20px 0' }} />
         <Stat
           suffix="%"
           target={100}
           label="Of the pool goes to runners"
           note="No house cut. Ever."
         />
-        <div style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
+        <div style={{ width: 1, background: 'rgba(255,255,255,0.1)', alignSelf: 'stretch', margin: '20px 0' }} />
         <Stat
           target={1}
           label="Goal between you and your money"

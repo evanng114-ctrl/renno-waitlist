@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import createLeagueBg from '../assets/create-league-bg.jpg'
 
 const STEPS = [
   {
@@ -87,10 +88,14 @@ export default function HowItWorks() {
     <section
       style={{
         padding: 'clamp(48px, 6vw, 72px) 24px',
-        background: 'var(--bg)',
+        background: '#000',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
-      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${createLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.85) 100%)' }} />
+      <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <div
           ref={header}
           className="reveal"

@@ -154,9 +154,8 @@ export default function WaitlistForm({ compact = false }) {
               fontSize: 13,
               letterSpacing: '0.07em',
               whiteSpace: 'nowrap',
-              flex: '0 0 auto',
+              flex: '1 1 auto',
               width: '100%',
-              maxWidth: 220,
             }}
           >
             {loading ? 'Joining...' : 'Join the Waitlist'}

@@ -1,6 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import WaitlistForm from './WaitlistForm'
-import runnerBg from '../assets/backgroundimage.png'
+import joinLeagueBg from '../assets/join-league-bgnd.jpeg'
 
 export default function FinalCTA() {
   const box = useScrollReveal()
@@ -16,19 +16,21 @@ export default function FinalCTA() {
         overflow: 'hidden',
       }}
     >
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${runnerBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.85) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${joinLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.75) 100%)' }} />
       <div
         ref={box}
         className="reveal"
         style={{
           maxWidth: 680,
           margin: '0 auto',
-          border: '1px solid rgba(249,115,22,0.3)',
+          border: '1px solid rgba(249,115,22,0.35)',
           borderRadius: 16,
           padding: 'clamp(32px, 4vw, 52px) clamp(24px, 4vw, 48px)',
           textAlign: 'center',
-          background: 'var(--accent-glow)',
+          background: 'rgba(0,0,0,0.52)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
           position: 'relative',
           zIndex: 2,
           overflow: 'hidden',
@@ -68,7 +70,7 @@ export default function FinalCTA() {
           textTransform: 'uppercase',
           letterSpacing: '-0.02em',
           lineHeight: 1.0,
-          color: 'var(--text)',
+          color: '#FFFFFF',
           margin: '0 0 12px',
         }}>
           FIRST RACE<br />
@@ -81,7 +83,7 @@ export default function FinalCTA() {
           ref={sub}
           className="reveal reveal-delay-1"
           style={{
-            color: 'var(--text-muted)',
+            color: 'rgba(255,255,255,0.75)',
             fontSize: 'clamp(14px, 2vw, 16px)',
             lineHeight: 1.6,
             maxWidth: 380,
@@ -98,7 +100,7 @@ export default function FinalCTA() {
 
         <p style={{
           marginTop: 18,
-          color: 'var(--text-dim)',
+          color: 'rgba(255,255,255,0.4)',
           fontSize: 12,
           letterSpacing: '0.02em',
         }}>

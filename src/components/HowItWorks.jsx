@@ -30,8 +30,10 @@ function StepCard({ step, delay }) {
       className={`reveal reveal-delay-${delay}`}
       style={{
         flex: 1,
-        background: 'var(--surface)',
-        border: '1px solid var(--border)',
+        background: 'rgba(0,0,0,0.48)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+        border: '1px solid rgba(255,255,255,0.12)',
         borderRadius: 12,
         padding: '36px 32px',
         display: 'flex',
@@ -40,8 +42,8 @@ function StepCard({ step, delay }) {
         minWidth: 0,
         transition: 'border-color 0.2s ease',
       }}
-      onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
-      onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
+      onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.5)')}
+      onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}
     >
       <div
         style={{
@@ -62,14 +64,14 @@ function StepCard({ step, delay }) {
           fontSize: 17,
           textTransform: 'uppercase',
           letterSpacing: '0.06em',
-          color: 'var(--text)',
+          color: '#FFFFFF',
         }}
       >
         {step.title}
       </div>
       <p
         style={{
-          color: 'var(--text-muted)',
+          color: 'rgba(255,255,255,0.75)',
           fontSize: 15,
           lineHeight: 1.65,
           margin: 0,
@@ -94,7 +96,7 @@ export default function HowItWorks() {
       }}
     >
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${createLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.85) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.72) 100%)' }} />
       <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <div
           ref={header}
@@ -121,7 +123,7 @@ export default function HowItWorks() {
               fontSize: 'clamp(28px, 3vw, 38px)',
               textTransform: 'uppercase',
               letterSpacing: '-0.01em',
-              color: 'var(--text)',
+              color: '#FFFFFF',
               margin: 0,
               lineHeight: 1.1,
             }}

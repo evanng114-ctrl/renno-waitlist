@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div style={{ minHeight: '100vh', background: '#0a0a0a', overflowX: 'hidden' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', overflowX: 'hidden' }}>
       <Navbar />
       <Hero />
       <StatsBar />

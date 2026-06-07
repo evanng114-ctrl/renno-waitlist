@@ -10,7 +10,7 @@ export default function FinalCTA() {
     <section
       style={{
         padding: 'clamp(64px, 10vw, 120px) 24px',
-        background: '#0a0a0a',
+        background: 'var(--bg)',
       }}
     >
       <div
@@ -19,11 +19,11 @@ export default function FinalCTA() {
         style={{
           maxWidth: 680,
           margin: '0 auto',
-          border: '1px solid rgba(196,242,60,0.3)',
+          border: '1px solid rgba(249,115,22,0.3)',
           borderRadius: 16,
           padding: 'clamp(40px, 6vw, 72px) clamp(28px, 6vw, 64px)',
           textAlign: 'center',
-          background: 'rgba(196,242,60,0.03)',
+          background: 'var(--accent-glow)',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -37,7 +37,7 @@ export default function FinalCTA() {
           width: 400,
           height: 300,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(196,242,60,0.13) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(249,115,22,0.13) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
 
@@ -48,7 +48,7 @@ export default function FinalCTA() {
           fontSize: 11,
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
-          color: '#C4F23C',
+          color: 'var(--accent)',
           marginBottom: 20,
         }}>
           Waitlist Exclusive
@@ -62,12 +62,12 @@ export default function FinalCTA() {
           textTransform: 'uppercase',
           letterSpacing: '-0.02em',
           lineHeight: 1.0,
-          color: '#ffffff',
+          color: 'var(--text)',
           margin: '0 0 12px',
         }}>
           FIRST RACE<br />
           IS ON{' '}
-          <span style={{ color: '#C4F23C' }}>US.</span>
+          <span style={{ color: 'var(--accent)' }}>US.</span>
         </h2>
 
         {/* Subtext */}
@@ -75,7 +75,7 @@ export default function FinalCTA() {
           ref={sub}
           className="reveal reveal-delay-1"
           style={{
-            color: 'rgba(255,255,255,0.5)',
+            color: 'var(--text-muted)',
             fontSize: 'clamp(14px, 2vw, 16px)',
             lineHeight: 1.6,
             maxWidth: 380,
@@ -92,7 +92,7 @@ export default function FinalCTA() {
 
         <p style={{
           marginTop: 18,
-          color: 'rgba(255,255,255,0.25)',
+          color: 'var(--text-dim)',
           fontSize: 12,
           letterSpacing: '0.02em',
         }}>

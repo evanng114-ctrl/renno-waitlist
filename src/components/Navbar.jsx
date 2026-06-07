@@ -22,8 +22,8 @@ export default function Navbar() {
         right: 0,
         zIndex: 50,
         transition: 'background 0.3s ease, border-bottom 0.3s ease',
-        background: scrolled ? 'rgba(10,10,10,0.95)' : 'transparent',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
+        background: scrolled ? 'rgba(0,0,0,0.92)' : 'transparent',
+        borderBottom: scrolled ? '1px solid var(--border)' : 'none',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
       }}
@@ -47,12 +47,12 @@ export default function Navbar() {
             fontWeight: 900,
             fontSize: 22,
             letterSpacing: '0.08em',
-            color: '#ffffff',
+            color: 'var(--text)',
             textTransform: 'uppercase',
             userSelect: 'none',
           }}
         >
-          RENN<span style={{ color: '#C4F23C' }}>O</span>
+          RENN<span style={{ color: 'var(--accent)' }}>O</span>
         </div>
 
         {/* Join Waitlist button removed */}

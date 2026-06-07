@@ -44,9 +44,9 @@ export default function WaitlistForm({ compact = false }) {
         style={{
           textAlign: 'center',
           padding: compact ? '20px 0' : '32px',
-          border: '1px solid rgba(196,242,60,0.25)',
+          border: '1px solid rgba(249,115,22,0.25)',
           borderRadius: 12,
-          background: 'rgba(196,242,60,0.04)',
+          background: 'var(--accent-glow)',
           maxWidth: 480,
           margin: '0 auto',
         }}
@@ -56,7 +56,7 @@ export default function WaitlistForm({ compact = false }) {
             fontFamily: "'Archivo', sans-serif",
             fontWeight: 900,
             fontSize: compact ? 22 : 28,
-            color: '#C4F23C',
+            color: 'var(--accent)',
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
             marginBottom: 12,
@@ -69,7 +69,7 @@ export default function WaitlistForm({ compact = false }) {
             fontFamily: "'Archivo', sans-serif",
             fontWeight: 800,
             fontSize: compact ? 16 : 20,
-            color: '#ffffff',
+            color: 'var(--text)',
             letterSpacing: '0.02em',
             marginBottom: 16,
           }}
@@ -78,7 +78,7 @@ export default function WaitlistForm({ compact = false }) {
         </div>
         <p
           style={{
-            color: 'rgba(255,255,255,0.55)',
+            color: 'var(--text-muted)',
             fontSize: 14,
             lineHeight: 1.6,
           }}
@@ -164,7 +164,7 @@ export default function WaitlistForm({ compact = false }) {
         </div>
 
         {error && (
-          <p style={{ color: '#ff4d4d', fontSize: 13, margin: 0 }}>{error}</p>
+          <p style={{ color: 'var(--red)', fontSize: 13, margin: 0 }}>{error}</p>
         )}
       </div>
     </form>

@@ -20,7 +20,7 @@ function Stat({ prefix = '', suffix = '', target, label, note }) {
           fontFamily: "'Archivo', sans-serif",
           fontWeight: 900,
           fontSize: 'clamp(36px, 6vw, 52px)',
-          color: '#C4F23C',
+          color: 'var(--accent)',
           lineHeight: 1,
           marginBottom: 8,
           letterSpacing: '-0.02em',
@@ -35,7 +35,7 @@ function Stat({ prefix = '', suffix = '', target, label, note }) {
           fontSize: 'clamp(13px, 1.8vw, 15px)',
           textTransform: 'uppercase',
           letterSpacing: '0.12em',
-          color: '#ffffff',
+          color: 'var(--text)',
           marginBottom: 4,
         }}
       >
@@ -45,7 +45,7 @@ function Stat({ prefix = '', suffix = '', target, label, note }) {
         <div
           style={{
             fontSize: 12,
-            color: 'rgba(255,255,255,0.4)',
+            color: 'var(--text-muted)',
             letterSpacing: '0.04em',
           }}
         >
@@ -60,9 +60,9 @@ export default function StatsBar() {
   return (
     <section
       style={{
-        background: '#141414',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        background: 'var(--surface)',
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
       }}
     >
       <div
@@ -80,14 +80,14 @@ export default function StatsBar() {
           label="Lost if you hit your goal"
           note="Your stake is always protected"
         />
-        <div style={{ width: 1, background: 'rgba(255,255,255,0.06)', alignSelf: 'stretch', margin: '20px 0' }} />
+        <div style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
         <Stat
           suffix="%"
           target={100}
           label="Of the pool goes to runners"
           note="No house cut. Ever."
         />
-        <div style={{ width: 1, background: 'rgba(255,255,255,0.06)', alignSelf: 'stretch', margin: '20px 0' }} />
+        <div style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
         <Stat
           target={1}
           label="Goal between you and your money"

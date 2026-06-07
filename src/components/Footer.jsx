@@ -16,8 +16,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: '#0a0a0a',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
+        background: 'var(--bg)',
+        borderTop: '1px solid var(--border)',
         padding: '48px 24px 40px',
       }}
     >
@@ -40,11 +40,11 @@ export default function Footer() {
             fontWeight: 900,
             fontSize: 20,
             letterSpacing: '0.1em',
-            color: '#ffffff',
+            color: 'var(--text)',
             textTransform: 'uppercase',
           }}
         >
-          RENN<span style={{ color: '#C4F23C' }}>O</span>
+          RENN<span style={{ color: 'var(--accent)' }}>O</span>
         </div>
 
         {/* Tagline */}
@@ -55,12 +55,12 @@ export default function Footer() {
             fontSize: 11,
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.3)',
+            color: 'var(--text-muted)',
             margin: 0,
           }}
         >
           COMPETE TOGETHER.{' '}
-          <span style={{ color: 'rgba(196,242,60,0.6)' }}>HIT THE GOAL.</span>{' '}
+          <span style={{ color: 'var(--accent)' }}>HIT THE GOAL.</span>{' '}
           WIN TOGETHER.
         </p>
 
@@ -70,12 +70,12 @@ export default function Footer() {
             href="#"
             aria-label="Instagram"
             style={{
-              color: 'rgba(255,255,255,0.35)',
+              color: 'var(--text-muted)',
               transition: 'color 0.2s ease',
               display: 'flex',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#C4F23C')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
           >
             <InstagramIcon />
           </a>
@@ -83,12 +83,12 @@ export default function Footer() {
             href="#"
             aria-label="TikTok"
             style={{
-              color: 'rgba(255,255,255,0.35)',
+              color: 'var(--text-muted)',
               transition: 'color 0.2s ease',
               display: 'flex',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#C4F23C')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
           >
             <TikTokIcon />
           </a>
@@ -98,7 +98,7 @@ export default function Footer() {
         <p
           style={{
             fontSize: 12,
-            color: 'rgba(255,255,255,0.2)',
+            color: 'var(--text-dim)',
             margin: 0,
           }}
         >

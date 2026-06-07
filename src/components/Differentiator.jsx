@@ -8,9 +8,9 @@ export default function Differentiator() {
     <section
       style={{
         padding: 'clamp(72px, 12vw, 140px) 24px',
-        background: '#0d0d0d',
-        borderTop: '1px solid rgba(255,255,255,0.05)',
-        borderBottom: '1px solid rgba(255,255,255,0.05)',
+        background: 'var(--surface)',
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
@@ -25,7 +25,7 @@ export default function Differentiator() {
           transform: 'translateX(-50%)',
           width: 600,
           height: 200,
-          background: 'radial-gradient(ellipse at bottom, rgba(196,242,60,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at bottom, rgba(249,115,22,0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -41,12 +41,12 @@ export default function Differentiator() {
             textTransform: 'uppercase',
             letterSpacing: '-0.02em',
             lineHeight: 1.05,
-            color: '#ffffff',
+            color: 'var(--text)',
             margin: '0 0 32px',
           }}
         >
           FALLING BEHIND IS THE{' '}
-          <span style={{ color: '#C4F23C' }}>ONLY WAY</span>{' '}
+          <span style={{ color: 'var(--accent)' }}>ONLY WAY</span>{' '}
           TO LOSE.
         </h2>
 
@@ -54,7 +54,7 @@ export default function Differentiator() {
           ref={sub}
           className="reveal reveal-delay-1"
           style={{
-            color: 'rgba(255,255,255,0.55)',
+            color: 'var(--text-muted)',
             fontSize: 'clamp(16px, 2.2vw, 19px)',
             lineHeight: 1.7,
             maxWidth: 620,
@@ -70,7 +70,7 @@ export default function Differentiator() {
           style={{
             width: 48,
             height: 3,
-            background: 'linear-gradient(90deg, #C4F23C, #8FB82E)',
+            background: 'linear-gradient(90deg, #F97316, #C2410C)',
             borderRadius: 2,
             margin: '48px auto 0',
           }}

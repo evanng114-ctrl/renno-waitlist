@@ -29,8 +29,8 @@ function StepCard({ step, delay }) {
       className={`reveal reveal-delay-${delay}`}
       style={{
         flex: 1,
-        background: 'rgba(255,255,255,0.06)',
-        border: '1px solid rgba(255,255,255,0.1)',
+        background: 'var(--surface)',
+        border: '1px solid var(--border)',
         borderRadius: 12,
         padding: '36px 32px',
         display: 'flex',
@@ -39,8 +39,8 @@ function StepCard({ step, delay }) {
         minWidth: 0,
         transition: 'border-color 0.2s ease',
       }}
-      onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.5)')}
-      onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')}
+      onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(249,115,22,0.4)')}
+      onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
     >
       <div
         style={{
@@ -61,14 +61,14 @@ function StepCard({ step, delay }) {
           fontSize: 17,
           textTransform: 'uppercase',
           letterSpacing: '0.06em',
-          color: '#F2F2F7',
+          color: 'var(--text)',
         }}
       >
         {step.title}
       </div>
       <p
         style={{
-          color: 'rgba(242,242,247,0.6)',
+          color: 'var(--text-muted)',
           fontSize: 15,
           lineHeight: 1.65,
           margin: 0,
@@ -87,7 +87,7 @@ export default function HowItWorks() {
     <section
       style={{
         padding: 'clamp(48px, 6vw, 72px) 24px',
-        background: 'var(--navy)',
+        background: 'var(--bg)',
       }}
     >
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
@@ -116,7 +116,7 @@ export default function HowItWorks() {
               fontSize: 'clamp(28px, 3vw, 38px)',
               textTransform: 'uppercase',
               letterSpacing: '-0.01em',
-              color: '#F2F2F7',
+              color: 'var(--text)',
               margin: 0,
               lineHeight: 1.1,
             }}

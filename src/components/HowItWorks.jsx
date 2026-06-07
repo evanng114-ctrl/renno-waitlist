@@ -11,7 +11,7 @@ const STEPS = [
     number: '02',
     title: 'HIT YOUR GOAL',
     description:
-      "Clear the bar and your money is safe — no matter where you finish relative to others. Your goal protects you.",
+      "Clear the bar and your money is safe. No matter where you finish. Your goal protects you.",
   },
   {
     number: '03',
@@ -86,7 +86,7 @@ export default function HowItWorks() {
   return (
     <section
       style={{
-        padding: 'clamp(64px, 10vw, 120px) 24px',
+        padding: 'clamp(48px, 6vw, 72px) 24px',
         background: 'var(--navy)',
       }}
     >
@@ -113,7 +113,7 @@ export default function HowItWorks() {
             style={{
               fontFamily: "'Archivo', sans-serif",
               fontWeight: 900,
-              fontSize: 'clamp(32px, 5vw, 52px)',
+              fontSize: 'clamp(28px, 3vw, 38px)',
               textTransform: 'uppercase',
               letterSpacing: '-0.01em',
               color: '#F2F2F7',

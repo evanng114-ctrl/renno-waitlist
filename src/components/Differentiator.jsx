@@ -7,7 +7,7 @@ export default function Differentiator() {
   return (
     <section
       style={{
-        padding: 'clamp(72px, 12vw, 140px) 24px',
+        padding: 'clamp(56px, 7vw, 88px) 24px',
         background: 'var(--surface)',
         borderTop: '1px solid var(--border)',
         borderBottom: '1px solid var(--border)',
@@ -37,7 +37,7 @@ export default function Differentiator() {
           style={{
             fontFamily: "'Archivo', sans-serif",
             fontWeight: 900,
-            fontSize: 'clamp(32px, 6vw, 68px)',
+            fontSize: 'clamp(28px, 3.5vw, 44px)',
             textTransform: 'uppercase',
             letterSpacing: '-0.02em',
             lineHeight: 1.05,
@@ -55,7 +55,7 @@ export default function Differentiator() {
           className="reveal reveal-delay-1"
           style={{
             color: 'var(--text-muted)',
-            fontSize: 'clamp(16px, 2.2vw, 19px)',
+            fontSize: 'clamp(15px, 1.4vw, 17px)',
             lineHeight: 1.7,
             maxWidth: 620,
             margin: '0 auto',

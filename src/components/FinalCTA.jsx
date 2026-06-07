@@ -9,7 +9,7 @@ export default function FinalCTA() {
   return (
     <section
       style={{
-        padding: 'clamp(64px, 10vw, 120px) 24px',
+        padding: 'clamp(48px, 6vw, 72px) 24px',
         background: 'var(--bg)',
       }}
     >
@@ -21,7 +21,7 @@ export default function FinalCTA() {
           margin: '0 auto',
           border: '1px solid rgba(249,115,22,0.3)',
           borderRadius: 16,
-          padding: 'clamp(40px, 6vw, 72px) clamp(28px, 6vw, 64px)',
+          padding: 'clamp(32px, 4vw, 52px) clamp(24px, 4vw, 48px)',
           textAlign: 'center',
           background: 'var(--accent-glow)',
           position: 'relative',
@@ -58,7 +58,7 @@ export default function FinalCTA() {
         <h2 style={{
           fontFamily: "'Archivo', sans-serif",
           fontWeight: 900,
-          fontSize: 'clamp(38px, 6vw, 62px)',
+          fontSize: 'clamp(32px, 4vw, 48px)',
           textTransform: 'uppercase',
           letterSpacing: '-0.02em',
           lineHeight: 1.0,
@@ -82,7 +82,7 @@ export default function FinalCTA() {
             margin: '0 auto 36px',
           }}
         >
-          Sign up now and your first entry is on us — no card, no catch. Just show up and run.
+          Your first entry is on us. No card, no catch. Just run.
         </p>
 
         {/* Form */}

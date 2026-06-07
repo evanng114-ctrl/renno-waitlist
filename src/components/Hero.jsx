@@ -102,7 +102,7 @@ export default function Hero() {
           style={{
             fontFamily: "'Archivo', sans-serif",
             fontWeight: 900,
-            fontSize: 'clamp(48px, 11vw, 108px)',
+            fontSize: 'clamp(48px, 5vw, 64px)',
             lineHeight: 1.0,
             letterSpacing: '-0.02em',
             textTransform: 'uppercase',

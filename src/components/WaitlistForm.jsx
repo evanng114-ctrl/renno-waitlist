@@ -83,12 +83,12 @@ export default function WaitlistForm({ compact = false }) {
             lineHeight: 1.6,
           }}
         >
-          Share this with your running crew — the bigger the pack, the bigger the pot.
+          Share with your crew. Bigger pack, bigger pot.
         </p>
         <button
           onClick={() => {
             if (navigator.share) {
-              navigator.share({ title: 'Renno', text: "Stake money on your weekly mileage — keep it if you hit your goal, win the pool if others don't. Join the waitlist.", url: window.location.href })
+              navigator.share({ title: 'Renno', text: "Stake money on your weekly mileage. Keep it if you hit your goal, win the pool if others don't. Join the waitlist.", url: window.location.href })
             } else {
               navigator.clipboard?.writeText(window.location.href)
               alert('Link copied!')

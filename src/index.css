@@ -162,6 +162,14 @@
   color: var(--text);
 }
 
+/* Desktop: compact proportions */
+@media (min-width: 769px) {
+  .hero-section {
+    min-height: unset !important;
+    padding: 100px 24px 72px !important;
+  }
+}
+
 /* Mobile-first responsive adjustments */
 @media (max-width: 480px) {
   .hero-section {

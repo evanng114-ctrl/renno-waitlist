@@ -47,7 +47,7 @@ export default function Navbar() {
             fontWeight: 900,
             fontSize: 22,
             letterSpacing: '0.08em',
-            color: '#F2F2F7',
+            color: scrolled ? '#F2F2F7' : 'var(--text)',
             textTransform: 'uppercase',
             userSelect: 'none',
           }}

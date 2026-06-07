@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import WaitlistForm from './WaitlistForm'
+import heroBg from '../assets/backgroundimage.png'
 
 const AVATAR_COLORS = ['#3a7bd5', '#e05252', '#e09a52', '#52c4e0']
 
@@ -31,7 +32,7 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           zIndex: 0,
-          backgroundImage: 'url(/hero-bg.jpg)',
+          backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center top',
         }}

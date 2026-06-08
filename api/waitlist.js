@@ -11,13 +11,12 @@ export default async function handler(req, res) {
   const { email } = req.body || {}
   if (!email) return res.status(400).json({ error: 'Email required' })
 
+  const url = new URL(SCRIPT_URL)
+  url.searchParams.set('email', email)
+
   let scriptRes
   try {
-    scriptRes = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
-    })
+    scriptRes = await fetch(url.toString(), { redirect: 'follow' })
   } catch (err) {
     console.error('Apps Script fetch failed:', err)
     return res.status(502).json({ error: 'Failed to reach Google Sheets' })

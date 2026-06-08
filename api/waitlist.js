@@ -8,7 +8,12 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end()
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
-  const { email } = req.body || {}
+  let parsed = req.body
+  if (typeof parsed === 'string') {
+    try { parsed = JSON.parse(parsed) } catch { parsed = {} }
+  }
+  const { email } = parsed || {}
+  console.log('waitlist body type:', typeof req.body, '| email:', email)
   if (!email) return res.status(400).json({ error: 'Email required' })
 
   const url = new URL(SCRIPT_URL)

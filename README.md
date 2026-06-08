@@ -1,16 +1,48 @@
-# React + Vite
+# Renno — Waitlist Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing landing page for **Renno**, a fitness competition app where runners stake real money on weekly mileage goals. Hit your goal, keep your cash. Miss it, fund the winners.
 
-Currently, two official plugins are available:
+Live at **[rennoapp.com](https://rennoapp.com)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React + Vite
+- Tailwind CSS v4
+- Netlify (hosting + form handling)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting started
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deploy
+
+```bash
+npm run build
+netlify deploy --dir=dist --prod
+```
+
+## Email signups
+
+Form submissions are captured by Netlify Forms. View them at:
+**app.netlify.com → renno-waitlist → Forms**
+
+## Swapping in the real logo
+
+The nav and footer use a text wordmark placeholder. Once the SVG is ready:
+
+1. Drop `renno-logo.svg` into `/public`
+2. Uncomment the `<img>` line in `src/components/Navbar.jsx` and `src/components/Footer.jsx`
+3. Remove the text wordmark below it
+
+## Brand
+
+| Token | Value |
+|-------|-------|
+| Background | `#0a0a0a` |
+| Surface | `#141414` |
+| Lime accent | `#C4F23C` |
+| Headline font | Archivo 900 |
+| Body font | Inter |

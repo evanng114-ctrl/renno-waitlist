@@ -41,12 +41,11 @@ export default function Differentiator() {
             letterSpacing: '0.03em',
             lineHeight: 1.05,
             color: 'var(--text)',
-            margin: '0 0 32px',
+            margin: '0 0 20px',
           }}
         >
-          FALLING BEHIND IS THE{' '}
-          <span style={{ color: 'var(--accent)' }}>ONLY WAY</span>{' '}
-          TO LOSE.
+          MISS YOUR GOAL.{' '}
+          <span style={{ color: 'var(--accent)' }}>FUND THE PACK.</span>
         </h2>
 
         <p
@@ -54,14 +53,13 @@ export default function Differentiator() {
           className="reveal reveal-delay-1"
           style={{
             color: 'var(--text-muted)',
-            fontSize: 'clamp(15px, 1.4vw, 17px)',
-            lineHeight: 1.7,
-            maxWidth: 620,
+            fontSize: 'clamp(14px, 1.3vw, 16px)',
+            lineHeight: 1.6,
+            maxWidth: 480,
             margin: '0 auto',
           }}
         >
-          Other apps punish you for trying. Renno protects every runner who hits
-          their goal and rewards the ones who push hardest.
+          Hit your miles — your stake is safe. Miss them — you fuel the winners.
         </p>
 
         {/* Divider accent */}

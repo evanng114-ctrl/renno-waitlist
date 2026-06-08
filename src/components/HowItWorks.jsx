@@ -27,7 +27,7 @@ function StepCard({ step, delay }) {
   return (
     <div
       ref={ref}
-      className={`reveal reveal-delay-${delay}`}
+      className={`reveal reveal-delay-${delay} hiw-card`}
       style={{
         flex: 1,
         background: 'rgba(0,0,0,0.15)',
@@ -46,6 +46,7 @@ function StepCard({ step, delay }) {
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)')}
     >
       <div
+        className="hiw-number"
         style={{
           fontFamily: "'Archivo', sans-serif",
           fontWeight: 900,
@@ -104,7 +105,7 @@ export default function HowItWorks() {
       <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <div
           ref={header}
-          className="reveal"
+          className="reveal hiw-header"
           style={{ marginBottom: 56, textAlign: 'center' }}
         >
           <p

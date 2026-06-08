@@ -10,26 +10,13 @@
   --gold: #FFD700;
   --navy: #1a2438;
 
-  /* Dark mode (default) */
-  --bg: #000000;
-  --surface: #1A1A1A;
-  --surface-high: #292929;
-  --border: #333333;
-  --text: #F2F2F7;
-  --text-muted: #8E8E93;
-  --text-dim: #444444;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #FFFFFF;
-    --surface: #F5F5F5;
-    --surface-high: #EBEBEB;
-    --border: #E2E2E2;
-    --text: #111111;
-    --text-muted: #777777;
-    --text-dim: #BBBBBB;
-  }
+  --bg: #F4F3F0;
+  --surface: #ECEAE5;
+  --surface-high: #E5E3DC;
+  --border: #D4D1C8;
+  --text: #111111;
+  --text-muted: #777777;
+  --text-dim: #BBBBBB;
 }
 
 @layer base {
@@ -215,5 +202,18 @@
 @media (max-width: 720px) {
   .cards-row {
     flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  /* How It Works — compact on mobile */
+  .hiw-header {
+    margin-bottom: 24px !important;
+  }
+  .hiw-card {
+    padding: 18px 20px !important;
+    gap: 8px !important;
+  }
+  .hiw-number {
+    font-size: 30px !important;
   }
 }

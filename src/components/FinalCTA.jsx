@@ -20,6 +20,8 @@ export default function FinalCTA() {
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.75) 100%)' }} />
       {/* Top blend from Differentiator */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 72, background: 'linear-gradient(to bottom, #F5F4F1, transparent)', zIndex: 1, pointerEvents: 'none' }} />
+      {/* Bottom blend into Footer */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 72, background: 'linear-gradient(to bottom, transparent, #F4F3F0)', zIndex: 1, pointerEvents: 'none' }} />
       <div
         ref={box}
         className="reveal"

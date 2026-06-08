@@ -55,7 +55,7 @@ export default function Hero() {
           bottom: 0,
           left: 0,
           right: 0,
-          height: 72,
+          height: 52,
           background: 'linear-gradient(to bottom, transparent, #F5F4F1)',
           zIndex: 1,
           pointerEvents: 'none',

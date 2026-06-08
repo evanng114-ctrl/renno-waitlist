@@ -7,7 +7,7 @@ export default function Differentiator() {
   return (
     <section
       style={{
-        padding: 'clamp(56px, 7vw, 88px) 24px',
+        padding: 'clamp(32px, 4vw, 48px) 24px',
         background: '#F5F4F1',
         textAlign: 'center',
         position: 'relative',
@@ -71,7 +71,7 @@ export default function Differentiator() {
             height: 3,
             background: 'linear-gradient(90deg, #F97316, #C2410C)',
             borderRadius: 2,
-            margin: '48px auto 0',
+            margin: '28px auto 0',
           }}
         />
       </div>

@@ -13,7 +13,11 @@ export default async function handler(req, res) {
 
   let scriptRes
   try {
-    scriptRes = await fetch(`${SCRIPT_URL}?email=${encodeURIComponent(email)}`)
+    scriptRes = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    })
   } catch (err) {
     console.error('Apps Script fetch failed:', err)
     return res.status(502).json({ error: 'Failed to reach Google Sheets' })

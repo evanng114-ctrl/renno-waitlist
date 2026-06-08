@@ -44,8 +44,8 @@ export default function Differentiator() {
             margin: '0 0 20px',
           }}
         >
-          HIT YOUR GOAL.{' '}
-          <span style={{ color: 'var(--accent)' }}>KEEP YOUR MONEY.</span>
+          RUN YOUR MILES.{' '}
+          <span style={{ color: 'var(--accent)' }}>GET PAID.</span>
         </h2>
 
         <p
@@ -59,7 +59,7 @@ export default function Differentiator() {
             margin: '0 auto',
           }}
         >
-          Run your weekly miles and your stake is always protected. The pot goes to everyone who shows up.
+          Hit your weekly goal and your stake is protected. Everyone who shows up shares the pot.
         </p>
 
         {/* Divider accent */}

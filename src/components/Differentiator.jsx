@@ -38,7 +38,7 @@ export default function Differentiator() {
             fontWeight: 900,
             fontSize: 'clamp(28px, 3.5vw, 44px)',
             textTransform: 'uppercase',
-            letterSpacing: '0em',
+            letterSpacing: '0.03em',
             lineHeight: 1.05,
             color: 'var(--text)',
             margin: '0 0 32px',

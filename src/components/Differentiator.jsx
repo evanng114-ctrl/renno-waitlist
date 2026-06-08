@@ -44,8 +44,8 @@ export default function Differentiator() {
             margin: '0 0 20px',
           }}
         >
-          MISS YOUR GOAL.{' '}
-          <span style={{ color: 'var(--accent)' }}>FUND THE PACK.</span>
+          HIT YOUR GOAL.{' '}
+          <span style={{ color: 'var(--accent)' }}>KEEP YOUR MONEY.</span>
         </h2>
 
         <p
@@ -59,7 +59,7 @@ export default function Differentiator() {
             margin: '0 auto',
           }}
         >
-          Hit your miles — your stake is safe. Miss them — you fuel the winners.
+          Run your weekly miles and your stake is always protected. The pot goes to everyone who shows up.
         </p>
 
         {/* Divider accent */}

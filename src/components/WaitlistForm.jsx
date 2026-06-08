@@ -20,14 +20,15 @@ export default function WaitlistForm({ compact = false }) {
 
     setLoading(true)
     try {
-      await fetch('/api/waitlist', {
+      const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       })
+      if (!res.ok) throw new Error('server')
       setSuccess(true)
     } catch {
-      setError('Network error. Please try again.')
+      setError('Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }

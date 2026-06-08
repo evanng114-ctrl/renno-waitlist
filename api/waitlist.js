@@ -1,4 +1,4 @@
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx_JdWzAM2TAND8Z1PfO8JjvKrHYx7RfK-dMcT-gOpK5KImgrfbphLiyyrrEx_XLfw-rg/exec'
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyeVSlRVfZhQcgXyg5jz8gTjye4bxixi23AWAgj0fhqkXXlXS-x5j7o5T7hL6ebGK1u1A/exec'
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -11,6 +11,19 @@ export default async function handler(req, res) {
   const { email } = req.body || {}
   if (!email) return res.status(400).json({ error: 'Email required' })
 
-  await fetch(`${SCRIPT_URL}?email=${encodeURIComponent(email)}`)
+  let scriptRes
+  try {
+    scriptRes = await fetch(`${SCRIPT_URL}?email=${encodeURIComponent(email)}`)
+  } catch (err) {
+    console.error('Apps Script fetch failed:', err)
+    return res.status(502).json({ error: 'Failed to reach Google Sheets' })
+  }
+
+  if (!scriptRes.ok) {
+    const body = await scriptRes.text().catch(() => '')
+    console.error('Apps Script returned', scriptRes.status, body)
+    return res.status(502).json({ error: 'Google Sheets script error' })
+  }
+
   res.status(200).json({ success: true })
 }

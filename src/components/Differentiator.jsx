@@ -29,49 +29,52 @@ export default function Differentiator() {
         }}
       />
 
-      <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 1 }}>
-        <h2
-          ref={heading}
+      <div style={{ maxWidth: 700, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        <p
           className="reveal"
           style={{
             fontFamily: "'Archivo', sans-serif",
-            fontWeight: 900,
-            fontSize: 'clamp(28px, 3.5vw, 44px)',
+            fontWeight: 700,
+            fontSize: 11,
+            letterSpacing: '0.22em',
             textTransform: 'uppercase',
-            letterSpacing: '0.03em',
-            lineHeight: 1.05,
+            color: 'var(--accent)',
+            marginBottom: 16,
+          }}
+        >
+          How You Win
+        </p>
+        <h2
+          ref={heading}
+          className="reveal reveal-delay-1"
+          style={{
+            fontFamily: "'Archivo', sans-serif",
+            fontWeight: 900,
+            fontSize: 'clamp(32px, 4vw, 52px)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.02em',
+            lineHeight: 1.0,
             color: 'var(--text)',
             margin: '0 0 20px',
           }}
         >
-          RUN YOUR MILES.{' '}
+          RUN YOUR MILES.<br />
           <span style={{ color: 'var(--accent)' }}>GET PAID.</span>
         </h2>
 
         <p
           ref={sub}
-          className="reveal reveal-delay-1"
+          className="reveal reveal-delay-2"
           style={{
             color: 'var(--text-muted)',
-            fontSize: 'clamp(14px, 1.3vw, 16px)',
+            fontSize: 'clamp(14px, 1.3vw, 15px)',
             lineHeight: 1.6,
-            maxWidth: 480,
+            maxWidth: 400,
             margin: '0 auto',
           }}
         >
           Hit your weekly goal and your stake is protected. Everyone who shows up shares the pot.
         </p>
-
-        {/* Divider accent */}
-        <div
-          style={{
-            width: 48,
-            height: 3,
-            background: 'linear-gradient(90deg, #F97316, #C2410C)',
-            borderRadius: 2,
-            margin: '28px auto 0',
-          }}
-        />
       </div>
     </section>
   )

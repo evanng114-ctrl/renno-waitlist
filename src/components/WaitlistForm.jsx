@@ -1,10 +1,5 @@
 import { useState } from 'react'
 
-function encode(data) {
-  return Object.entries(data)
-    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
-    .join('&')
-}
 
 export default function WaitlistForm({ compact = false }) {
   const [email, setEmail] = useState('')
@@ -25,10 +20,10 @@ export default function WaitlistForm({ compact = false }) {
 
     setLoading(true)
     try {
-      await fetch('/', {
+      await fetch('/api/waitlist', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'waitlist', email }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
       })
       setSuccess(true)
     } catch {

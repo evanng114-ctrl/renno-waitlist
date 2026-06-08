@@ -65,7 +65,7 @@ export default function WaitlistForm({ compact = false }) {
             fontFamily: "'Archivo', sans-serif",
             fontWeight: 800,
             fontSize: compact ? 16 : 20,
-            color: 'var(--text)',
+            color: 'rgba(255,255,255,0.9)',
             letterSpacing: '0.02em',
             marginBottom: 16,
           }}
@@ -74,7 +74,7 @@ export default function WaitlistForm({ compact = false }) {
         </div>
         <p
           style={{
-            color: 'var(--text-muted)',
+            color: 'rgba(255,255,255,0.6)',
             fontSize: 14,
             lineHeight: 1.6,
           }}

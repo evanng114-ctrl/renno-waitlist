@@ -30,7 +30,7 @@ function StepCard({ step, delay }) {
       className={`reveal reveal-delay-${delay}`}
       style={{
         flex: 1,
-        background: 'rgba(0,0,0,0.48)',
+        background: 'rgba(0,0,0,0.15)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
         border: '1px solid rgba(255,255,255,0.12)',
@@ -97,6 +97,10 @@ export default function HowItWorks() {
     >
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${createLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.72) 100%)' }} />
+      {/* Top blend from StatsBar */}
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 60, background: 'linear-gradient(to bottom, #E5E3DC, transparent)', zIndex: 1, pointerEvents: 'none' }} />
+      {/* Bottom blend into Differentiator */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 60, background: 'linear-gradient(to bottom, transparent, #E5E3DC)', zIndex: 1, pointerEvents: 'none' }} />
       <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <div
           ref={header}

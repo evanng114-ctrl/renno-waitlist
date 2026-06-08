@@ -48,6 +48,20 @@ export default function Hero() {
         }}
       />
 
+      {/* Bottom blend into StatsBar */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: 60,
+          background: 'linear-gradient(to bottom, transparent, #E5E3DC)',
+          zIndex: 1,
+          pointerEvents: 'none',
+        }}
+      />
+
       {/* Accent glow pulse */}
       <div
         className="lime-glow-pulse"
@@ -86,36 +100,24 @@ export default function Hero() {
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: 8,
-            background: 'var(--accent-glow)',
-            border: '1px solid rgba(249,115,22,0.3)',
-            borderRadius: 100,
-            padding: '4px 12px',
+            gap: 14,
             marginBottom: 36,
           }}
         >
-          <span
-            style={{
-              width: 7,
-              height: 7,
-              borderRadius: '50%',
-              background: 'var(--accent)',
-              display: 'inline-block',
-              boxShadow: '0 0 8px rgba(249,115,22,0.8)',
-            }}
-          />
+          <span style={{ width: 28, height: 1, background: 'var(--accent)', display: 'inline-block', opacity: 0.7 }} />
           <span
             style={{
               fontFamily: "'Archivo', sans-serif",
               fontWeight: 700,
-              fontSize: 8,
-              letterSpacing: '0.1em',
-              color: 'var(--accent)',
+              fontSize: 11,
+              letterSpacing: '0.28em',
+              color: 'rgba(242,242,247,0.88)',
               textTransform: 'uppercase',
             }}
           >
             Launching August 2026
           </span>
+          <span style={{ width: 28, height: 1, background: 'var(--accent)', display: 'inline-block', opacity: 0.7 }} />
         </div>
 
         {/* Main headline */}
@@ -140,32 +142,6 @@ export default function Hero() {
           <br />
           ARE
         </h1>
-
-        {/* Free race promo */}
-        <div
-          style={{
-            background: 'var(--accent-glow)',
-            border: '1px solid rgba(249,115,22,0.35)',
-            borderRadius: 10,
-            padding: '14px 20px',
-            marginBottom: 28,
-            width: '100%',
-            maxWidth: 520,
-            textAlign: 'center',
-            boxShadow: '0 0 32px rgba(249,115,22,0.08)',
-          }}
-        >
-          <div style={{
-            fontFamily: "'Archivo', sans-serif",
-            fontWeight: 900,
-            fontSize: 'clamp(15px, 3.5vw, 17px)',
-            color: 'var(--accent)',
-            textTransform: 'uppercase',
-            letterSpacing: '0.04em',
-          }}>
-            First race is on us.
-          </div>
-        </div>
 
         {/* Signup form */}
         <div

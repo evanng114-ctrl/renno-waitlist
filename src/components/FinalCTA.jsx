@@ -18,6 +18,8 @@ export default function FinalCTA() {
     >
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${joinLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.75) 100%)' }} />
+      {/* Top blend from Differentiator */}
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 60, background: 'linear-gradient(to bottom, #E5E3DC, transparent)', zIndex: 1, pointerEvents: 'none' }} />
       <div
         ref={box}
         className="reveal"
@@ -28,7 +30,7 @@ export default function FinalCTA() {
           borderRadius: 16,
           padding: 'clamp(32px, 4vw, 52px) clamp(24px, 4vw, 48px)',
           textAlign: 'center',
-          background: 'rgba(0,0,0,0.52)',
+          background: 'rgba(0,0,0,0.28)',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
           position: 'relative',

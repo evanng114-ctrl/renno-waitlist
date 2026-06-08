@@ -8,14 +8,13 @@ export default function Differentiator() {
     <section
       style={{
         padding: 'clamp(56px, 7vw, 88px) 24px',
-        background: 'var(--surface)',
-        borderTop: '1px solid var(--border)',
-        borderBottom: '1px solid var(--border)',
+        background: '#F5F4F1',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
+
       {/* Subtle glow accent */}
       <div
         style={{

@@ -60,9 +60,9 @@ export default function StatsBar() {
   return (
     <section
       style={{
-        background: 'var(--surface)',
-        borderTop: '1px solid var(--border)',
-        borderBottom: '1px solid var(--border)',
+        background: '#F5F4F1',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
       <div

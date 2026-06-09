@@ -7,7 +7,7 @@
   --accent-deep: #C2410C;
   --red: #FF4D4D;
   --red-glow: rgba(255,77,77,0.15);
-  --gold: #FFD700;
+  --gold: #D4A017;
   --navy: #1a2438;
 
   --bg: #F4F3F0;
@@ -198,15 +198,18 @@
   }
 }
 
+.diff-bottom-blend { display: none; }
+
 /* Differentiator — stack + show phones on mobile */
 @media (max-width: 900px) {
+  .diff-bottom-blend { display: block !important; }
   .diff-section {
-    padding: 20px 24px 48px !important;
+    padding: 8px 24px 32px !important;
     overflow: visible !important;
   }
   .diff-row {
     flex-direction: column !important;
-    gap: 4px !important;
+    gap: 0px !important;
     align-items: center !important;
   }
   .diff-row > div:first-child {
@@ -221,23 +224,23 @@
     display: block !important;
     transform: scale(0.82) !important;
     transform-origin: top center !important;
-    margin-top: -44px !important;
+    margin-top: -58px !important;
     margin-bottom: -86px !important;
   }
 }
 
 /* FinalCTA testimonials — show on mobile, box first then one slider */
 @media (max-width: 900px) {
+  .cta-section {
+    padding-top: 24px !important;
+  }
   .cta-top-blend {
-    height: 80px !important;
+    display: none !important;
   }
   .cta-bottom-blend {
     height: 120px !important;
   }
-  .cta-what-label {
-    color: var(--accent) !important;
-  }
-  .cta-quotes-col {
+.cta-quotes-col {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -278,6 +281,9 @@
   }
 
   /* How It Works — compact on mobile */
+  .hiw-section {
+    padding-bottom: 28px !important;
+  }
   .hiw-header {
     margin-bottom: 24px !important;
   }

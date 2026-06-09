@@ -229,13 +229,13 @@
     gap: 20px !important;
   }
   .cta-center-box {
-    order: 1 !important;
+    order: 2 !important;
     width: 100% !important;
     max-width: 100% !important;
   }
   .cta-quotes-col {
     display: block !important;
-    order: 2 !important;
+    order: 1 !important;
     width: 100% !important;
   }
   .cta-quotes-col:last-child {

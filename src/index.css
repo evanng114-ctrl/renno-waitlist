@@ -201,11 +201,12 @@
 /* Differentiator — stack + show phones on mobile */
 @media (max-width: 900px) {
   .diff-section {
-    padding: 20px 24px 8px !important;
+    padding: 20px 24px 48px !important;
+    overflow: visible !important;
   }
   .diff-row {
     flex-direction: column !important;
-    gap: 16px !important;
+    gap: 4px !important;
     align-items: center !important;
   }
   .diff-row > div:first-child {
@@ -218,9 +219,10 @@
   }
   .diff-phone {
     display: block !important;
-    transform: scale(0.78) !important;
+    transform: scale(0.82) !important;
     transform-origin: top center !important;
-    margin-bottom: -100px !important;
+    margin-top: -44px !important;
+    margin-bottom: -86px !important;
   }
 }
 
@@ -236,7 +238,7 @@
     color: var(--accent) !important;
   }
   .cta-quotes-col {
-    padding-top: 88px;
+    padding-top: 20px;
     padding-bottom: 80px;
   }
   .cta-zigzag {

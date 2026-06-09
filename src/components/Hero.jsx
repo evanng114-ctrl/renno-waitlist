@@ -136,7 +136,7 @@ export default function Hero() {
           }}
         >
           PUT YOUR{' '}
-          <span style={{ color: 'var(--gold)' }}>MONEY</span>
+          <span className="gold-shine">MONEY</span>
           <br />
           WHERE YOUR{' '}
           <span style={{ color: 'var(--accent)' }}>MILES</span>

@@ -65,6 +65,21 @@
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
+/* Gold shine sweep for MONEY */
+@keyframes goldShine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shine {
+  background: linear-gradient(90deg, #D4A017 25%, #FFE566 45%, #FFF3A3 50%, #FFE566 55%, #D4A017 75%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShine 3.5s linear infinite;
+}
+
 /* Accent glow pulse */
 @keyframes accentPulse {
   0%, 100% { opacity: 0.18; transform: scale(1); }
@@ -202,10 +217,11 @@
 
 /* Differentiator — stack + show phones on mobile */
 @media (max-width: 900px) {
-  .diff-bottom-blend { display: block !important; }
+  .diff-bottom-blend { display: none !important; }
   .diff-section {
     padding: 8px 24px 32px !important;
     overflow: visible !important;
+    background: linear-gradient(to bottom, var(--bg) 20%, #111 75%) !important;
   }
   .diff-row {
     flex-direction: column !important;
@@ -235,7 +251,8 @@
     padding-top: 24px !important;
   }
   .cta-top-blend {
-    display: none !important;
+    height: 60px !important;
+    background: linear-gradient(to bottom, #111 0%, transparent 100%) !important;
   }
   .cta-bottom-blend {
     height: 120px !important;

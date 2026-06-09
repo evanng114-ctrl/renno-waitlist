@@ -120,10 +120,26 @@ export default function Hero() {
           <span style={{ width: 28, height: 1, background: 'var(--accent)', display: 'inline-block', opacity: 0.7 }} />
         </div>
 
+        {/* Eyebrow statement */}
+        <p
+          className="reveal reveal-delay-1"
+          style={{
+            fontFamily: "'Archivo', sans-serif",
+            fontWeight: 900,
+            fontSize: 'clamp(18px, 2.2vw, 26px)',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color: 'var(--accent)',
+            margin: '0 0 14px',
+          }}
+        >
+          HIT YOUR GOALS.
+        </p>
+
         {/* Main headline */}
         <h1
           ref={headline}
-          className="reveal reveal-delay-1"
+          className="reveal reveal-delay-2"
           style={{
             fontFamily: "'Archivo', sans-serif",
             fontWeight: 900,
@@ -139,9 +155,9 @@ export default function Hero() {
           <span className="gold-shine">MONEY</span>
           <br />
           WHERE YOUR{' '}
-          <span style={{ color: 'var(--accent)' }}>MILES</span>
+          <span style={{ color: '#D4620F' }}>MILES</span>
           <br />
-          ARE
+          ARE.
         </h1>
 
         {/* Signup form */}

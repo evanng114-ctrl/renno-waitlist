@@ -221,6 +221,7 @@
   .diff-section {
     padding: 8px 24px 32px !important;
     overflow: visible !important;
+    margin-bottom: -2px !important;
     background: linear-gradient(to bottom, var(--bg) 5%, #c8c7c3 22%, #8a8986 42%, #444 62%, #111 80%) !important;
   }
   .diff-row {

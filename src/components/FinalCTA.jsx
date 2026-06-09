@@ -95,7 +95,7 @@ export default function FinalCTA() {
     <section className="cta-section" style={{ padding: 'clamp(48px, 5vw, 64px) 24px', background: '#000', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${joinLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.82) 100%)' }} />
-      <div className="cta-top-blend" style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 52, background: 'linear-gradient(to bottom, #F4F3F0 0%, rgba(244,243,240,0.85) 25%, rgba(244,243,240,0.5) 55%, rgba(244,243,240,0.15) 80%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
+      <div className="cta-top-blend" style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 140, background: 'linear-gradient(to bottom, #F4F3F0 0%, rgba(244,243,240,0.9) 15%, rgba(244,243,240,0.6) 40%, rgba(244,243,240,0.25) 65%, rgba(244,243,240,0.06) 85%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
       <div className="cta-bottom-blend" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 52, background: 'linear-gradient(to bottom, transparent 0%, rgba(244,243,240,0.4) 50%, rgba(244,243,240,0.85) 80%, #F4F3F0 100%)', zIndex: 1, pointerEvents: 'none' }} />
 
       <div className="cta-zigzag" style={{ maxWidth: 1400, margin: '0 auto', position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32 }}>

@@ -73,7 +73,7 @@ function TwoPhonesDisplay() {
     <div
       ref={ref}
       className="reveal reveal-delay-1 diff-phone"
-      style={{ position: 'relative', width: 390, height: 480, flexShrink: 0 }}
+      style={{ position: 'relative', width: 430, height: 480, flexShrink: 0 }}
     >
       {/* Left phone — behind, tilted left */}
       <div style={{ position: 'absolute', left: 0, top: 50, zIndex: 1 }}>
@@ -100,9 +100,11 @@ export default function Differentiator() {
         textAlign: 'center',
         position: 'relative',
         overflow: 'visible',
+      willChange: 'transform',
       }}
     >
       <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: 600, height: 200, background: 'radial-gradient(ellipse at bottom, rgba(249,115,22,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <div className="diff-bottom-blend" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0.75) 100%)', zIndex: 3, pointerEvents: 'none' }} />
 
       <div
         className="diff-row"

@@ -198,7 +198,10 @@
   .stats-divider-v {
     width: 80px !important;
     height: 1px !important;
-    margin: 0 auto !important;
+    margin: 4px auto !important;
+  }
+  .stats-row > div:not(.stats-divider-v) {
+    padding: 10px 16px !important;
   }
 }
 

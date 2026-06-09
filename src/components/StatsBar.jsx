@@ -80,14 +80,14 @@ export default function StatsBar() {
           label="Lost if you hit your goal"
           note="Your stake is always protected"
         />
-        <div style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
+        <div className="stats-divider-v" style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
         <Stat
           suffix="%"
           target={100}
           label="Of the pool goes to runners"
           note="No house cut. Ever."
         />
-        <div style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
+        <div className="stats-divider-v" style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
         <Stat
           target={1}
           label="Goal between you and your money"

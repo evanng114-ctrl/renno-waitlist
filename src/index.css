@@ -251,20 +251,13 @@
   }
   .diff-phone {
     display: block !important;
-    width: 310px !important;
-    transform: scale(0.82) !important;
+    transform: scale(0.65) !important;
     transform-origin: top center !important;
-    margin-top: -58px !important;
-    margin-bottom: -86px !important;
+    margin-top: -40px !important;
+    margin-bottom: -148px !important;
   }
   .diff-section {
     z-index: 5 !important;
-  }
-  .phone-wrap-left {
-    left: 30px !important;
-  }
-  .phone-wrap-right {
-    right: 10px !important;
   }
 }
 

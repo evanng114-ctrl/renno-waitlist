@@ -95,7 +95,7 @@ export default function FinalCTA() {
     <section style={{ padding: 'clamp(48px, 5vw, 64px) 24px', background: '#000', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${joinLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.82) 100%)' }} />
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 52, background: 'linear-gradient(to bottom, #F5F4F1, transparent)', zIndex: 1, pointerEvents: 'none' }} />
+      <div className="cta-top-blend" style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 52, background: 'linear-gradient(to bottom, #F5F4F1, transparent)', zIndex: 1, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 52, background: 'linear-gradient(to bottom, transparent, #F4F3F0)', zIndex: 1, pointerEvents: 'none' }} />
 
       <div className="cta-zigzag" style={{ maxWidth: 1400, margin: '0 auto', position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32 }}>

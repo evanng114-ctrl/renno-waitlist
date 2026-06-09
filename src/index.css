@@ -200,9 +200,12 @@
 
 /* Differentiator — stack + show phones on mobile */
 @media (max-width: 900px) {
+  .diff-section {
+    padding-bottom: 40px !important;
+  }
   .diff-row {
     flex-direction: column !important;
-    gap: 12px !important;
+    gap: 40px !important;
     align-items: center !important;
   }
   .diff-row > div:first-child {
@@ -217,12 +220,15 @@
     display: block !important;
     transform: scale(0.78) !important;
     transform-origin: top center !important;
-    margin-bottom: -106px !important;
+    margin-bottom: -72px !important;
   }
 }
 
 /* FinalCTA testimonials — show on mobile, box first then one slider */
 @media (max-width: 900px) {
+  .cta-top-blend {
+    height: 90px !important;
+  }
   .cta-zigzag {
     flex-direction: column !important;
     align-items: stretch !important;
@@ -240,6 +246,15 @@
   }
   .cta-quotes-col:last-child {
     display: none !important;
+  }
+}
+
+/* Scale integrations row to fit one line on mobile */
+@media (max-width: 560px) {
+  .integrations-row {
+    transform: scale(0.68);
+    transform-origin: center;
+    gap: 20px !important;
   }
 }
 

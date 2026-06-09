@@ -93,6 +93,7 @@ export default function Differentiator() {
 
   return (
     <section
+      className="diff-section"
       style={{
         padding: 'clamp(24px, 3vw, 40px) 24px clamp(48px, 6vw, 72px)',
         background: '#F5F4F1',

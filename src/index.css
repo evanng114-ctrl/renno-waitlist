@@ -246,12 +246,25 @@
   .diff-row > div:first-child h2 {
     text-align: center !important;
   }
+  .diff-subtitle {
+    color: rgba(255,255,255,0.48) !important;
+  }
   .diff-phone {
     display: block !important;
+    width: 310px !important;
     transform: scale(0.82) !important;
     transform-origin: top center !important;
     margin-top: -58px !important;
     margin-bottom: -86px !important;
+  }
+  .diff-section {
+    z-index: 5 !important;
+  }
+  .phone-wrap-left {
+    left: 30px !important;
+  }
+  .phone-wrap-right {
+    right: 10px !important;
   }
 }
 

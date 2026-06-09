@@ -76,11 +76,11 @@ function TwoPhonesDisplay() {
       style={{ position: 'relative', width: 430, height: 480, flexShrink: 0 }}
     >
       {/* Left phone — behind, tilted left */}
-      <div style={{ position: 'absolute', left: 0, top: 50, zIndex: 1 }}>
+      <div className="phone-wrap-left" style={{ position: 'absolute', left: 0, top: 50, zIndex: 1 }}>
         <PhoneFrame screen={leagueScreen} rotation={-12} zIndex={1} />
       </div>
       {/* Right phone — front, tilted right */}
-      <div style={{ position: 'absolute', right: 0, top: 0, zIndex: 2 }}>
+      <div className="phone-wrap-right" style={{ position: 'absolute', right: 0, top: 0, zIndex: 2 }}>
         <PhoneFrame screen={mapScreen} rotation={7} zIndex={2} />
       </div>
     </div>
@@ -137,7 +137,7 @@ export default function Differentiator() {
           </h2>
           <p
             ref={sub}
-            className="reveal reveal-delay-2"
+            className="reveal reveal-delay-2 diff-subtitle"
             style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px, 1.3vw, 15px)', lineHeight: 1.6, maxWidth: 380, margin: 0 }}
           >
             Hit your weekly goal and your stake is protected. Everyone who shows up shares the pot.

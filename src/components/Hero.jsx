@@ -135,7 +135,8 @@ export default function Hero() {
             margin: '0 0 48px',
           }}
         >
-          PUT YOUR MONEY
+          PUT YOUR{' '}
+          <span style={{ color: 'var(--gold)' }}>MONEY</span>
           <br />
           WHERE YOUR{' '}
           <span style={{ color: 'var(--accent)' }}>MILES</span>

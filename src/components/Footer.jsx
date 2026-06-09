@@ -17,7 +17,7 @@ export default function Footer() {
     <footer
       style={{
         background: 'var(--bg)',
-        padding: '48px 24px 40px',
+        padding: '24px 24px 40px',
       }}
     >
       <div
@@ -66,7 +66,9 @@ export default function Footer() {
         {/* Social icons */}
         <div style={{ display: 'flex', gap: 20 }}>
           <a
-            href="#"
+            href="https://www.instagram.com/renno.run/reels/"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Instagram"
             style={{
               color: 'var(--text-muted)',
@@ -79,7 +81,9 @@ export default function Footer() {
             <InstagramIcon />
           </a>
           <a
-            href="#"
+            href="https://www.tiktok.com/@renno.run"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="TikTok"
             style={{
               color: 'var(--text-muted)',

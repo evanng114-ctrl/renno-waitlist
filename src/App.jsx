@@ -5,6 +5,7 @@ import StatsBar from './components/StatsBar'
 import HowItWorks from './components/HowItWorks'
 import Differentiator from './components/Differentiator'
 import FinalCTA from './components/FinalCTA'
+import Integrations from './components/Integrations'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
       <HowItWorks />
       <Differentiator />
       <FinalCTA />
+      <Integrations />
       <Footer />
     </div>
   )

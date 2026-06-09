@@ -1,97 +1,104 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
-const TESTIMONIALS = [
-  {
-    quote: "I never thought I'd actually stick to a training plan. When money's on the line, every mile counts.",
-    name: 'Marcus T.',
-    detail: '22 mi/week · 8-week streak',
-    initials: 'MT',
-    avatarBg: '#3a7bd5',
-  },
-  {
-    quote: "Hit my goal every week for two months straight. The accountability is real. And so is the payout.",
-    name: 'Priya S.',
-    detail: '35 mi/week · Top 10%',
-    initials: 'PS',
-    avatarBg: '#e05252',
-  },
-]
-
-function Testimonial({ item, delay }) {
+function PhoneMockup({ rotation, nudgeY = 0, delay }) {
   const ref = useScrollReveal()
   return (
     <div
       ref={ref}
-      className={`reveal reveal-delay-${delay}`}
+      className={`reveal reveal-delay-${delay} diff-phone`}
       style={{
-        flex: '1 1 240px',
-        maxWidth: 300,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 20,
-        textAlign: 'left',
+        transform: `rotate(${rotation}deg) translateY(${nudgeY}px)`,
+        flexShrink: 0,
+        position: 'relative',
       }}
     >
-      {/* Large quotation mark */}
+      {/* Volume buttons */}
+      <div style={{ position: 'absolute', left: -4, top: 100, width: 4, height: 26, borderRadius: '3px 0 0 3px', background: '#2a2a2a' }} />
+      <div style={{ position: 'absolute', left: -4, top: 136, width: 4, height: 26, borderRadius: '3px 0 0 3px', background: '#2a2a2a' }} />
+      {/* Power button */}
+      <div style={{ position: 'absolute', right: -4, top: 118, width: 4, height: 40, borderRadius: '0 3px 3px 0', background: '#2a2a2a' }} />
+
+      {/* Phone body */}
       <div
         style={{
-          fontFamily: "'Archivo', sans-serif",
-          fontWeight: 900,
-          fontSize: 72,
-          lineHeight: 1,
-          color: 'var(--accent)',
-          marginBottom: -12,
+          width: 220,
+          height: 440,
+          borderRadius: 42,
+          background: '#111',
+          padding: 10,
+          boxShadow: '0 40px 100px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.07)',
         }}
       >
-        "
-      </div>
-
-      {/* Quote text */}
-      <p
-        style={{
-          color: 'var(--text)',
-          fontSize: 'clamp(15px, 1.4vw, 18px)',
-          lineHeight: 1.6,
-          margin: 0,
-          fontWeight: 500,
-        }}
-      >
-        {item.quote}"
-      </p>
-
-      {/* Avatar + name */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 4 }}>
+        {/* Screen */}
         <div
           style={{
-            width: 44,
-            height: 44,
-            borderRadius: '50%',
-            background: item.avatarBg,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontFamily: "'Archivo', sans-serif",
-            fontWeight: 800,
-            fontSize: 13,
-            color: '#fff',
-            flexShrink: 0,
+            width: '100%',
+            height: '100%',
+            borderRadius: 32,
+            background: '#e8e8e8',
+            overflow: 'hidden',
+            position: 'relative',
           }}
         >
-          {item.initials}
-        </div>
-        <div>
+          {/* Dynamic Island */}
           <div
             style={{
-              fontFamily: "'Archivo', sans-serif",
-              fontWeight: 700,
-              fontSize: 14,
-              color: 'var(--text)',
+              position: 'absolute',
+              top: 12,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: 80,
+              height: 22,
+              borderRadius: 11,
+              background: '#111',
+              zIndex: 10,
+            }}
+          />
+          {/* Placeholder screen */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(170deg, #f4f4f4 0%, #e2e2e2 100%)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 10,
+              paddingTop: 44,
             }}
           >
-            {item.name}
-          </div>
-          <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>
-            {item.detail}
+            <div
+              style={{
+                width: 64,
+                height: 64,
+                borderRadius: 16,
+                background: 'rgba(249,115,22,0.12)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <div
+                style={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: '50%',
+                  background: 'var(--accent)',
+                  opacity: 0.6,
+                }}
+              />
+            </div>
+            <span
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 11,
+                color: '#bbb',
+                letterSpacing: '0.04em',
+              }}
+            >
+              App Preview
+            </span>
           </div>
         </div>
       </div>
@@ -106,11 +113,11 @@ export default function Differentiator() {
   return (
     <section
       style={{
-        padding: 'clamp(32px, 4vw, 48px) 24px',
+        padding: 'clamp(48px, 6vw, 80px) 24px',
         background: '#F5F4F1',
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden',
+        overflow: 'visible',
       }}
     >
       <div
@@ -127,9 +134,8 @@ export default function Differentiator() {
       />
 
       <div
-        className="diff-row"
         style={{
-          maxWidth: 1100,
+          maxWidth: 1200,
           margin: '0 auto',
           position: 'relative',
           zIndex: 1,
@@ -137,13 +143,12 @@ export default function Differentiator() {
           alignItems: 'center',
           justifyContent: 'center',
           gap: 48,
-          flexWrap: 'wrap',
         }}
       >
-        <Testimonial item={TESTIMONIALS[0]} delay={1} />
+        <PhoneMockup rotation={-8} nudgeY={-20} delay={1} />
 
-        {/* Center content */}
-        <div style={{ flex: '1 1 300px', maxWidth: 420, textAlign: 'center' }}>
+        {/* Center text */}
+        <div style={{ flex: '1 1 300px', maxWidth: 480, textAlign: 'center' }}>
           <p
             className="reveal"
             style={{
@@ -190,7 +195,7 @@ export default function Differentiator() {
           </p>
         </div>
 
-        <Testimonial item={TESTIMONIALS[1]} delay={2} />
+        <PhoneMockup rotation={8} nudgeY={20} delay={2} />
       </div>
     </section>
   )

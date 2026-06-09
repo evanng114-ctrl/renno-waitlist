@@ -198,6 +198,23 @@
   }
 }
 
+/* Hide CTA quote columns on mobile */
+@media (max-width: 900px) {
+  .cta-quotes-col {
+    display: none !important;
+  }
+  .cta-zigzag {
+    justify-content: center !important;
+  }
+}
+
+/* Hide phones on mobile */
+@media (max-width: 900px) {
+  .diff-phone {
+    display: none !important;
+  }
+}
+
 /* Cards stack on mobile */
 @media (max-width: 720px) {
   .cards-row {

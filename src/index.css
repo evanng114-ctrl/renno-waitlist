@@ -198,19 +198,47 @@
   }
 }
 
-/* Hide CTA quote columns on mobile */
+/* Differentiator — stack + show phones on mobile */
 @media (max-width: 900px) {
-  .cta-quotes-col {
-    display: none !important;
+  .diff-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: center !important;
   }
-  .cta-zigzag {
-    justify-content: center !important;
+  .diff-row > div:first-child {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+  .diff-row > div:first-child p,
+  .diff-row > div:first-child h2 {
+    text-align: center !important;
+  }
+  .diff-phone {
+    display: block !important;
+    transform: scale(0.78) !important;
+    transform-origin: top center !important;
+    margin-bottom: -106px !important;
   }
 }
 
-/* Hide phones on mobile */
+/* FinalCTA testimonials — show on mobile, box first then one slider */
 @media (max-width: 900px) {
-  .diff-phone {
+  .cta-zigzag {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+  }
+  .cta-center-box {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .cta-quotes-col {
+    display: block !important;
+    order: 2 !important;
+    width: 100% !important;
+  }
+  .cta-quotes-col:last-child {
     display: none !important;
   }
 }

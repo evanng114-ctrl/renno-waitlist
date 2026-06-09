@@ -1,106 +1,87 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import leagueScreen from '../assets/league.png'
+import mapScreen from '../assets/map.png'
 
-function PhoneMockup({ rotation, nudgeY = 0, delay }) {
+function PhoneFrame({ screen, rotation, zIndex = 1 }) {
+  const btnBase = {
+    position: 'absolute',
+    borderRadius: 2,
+  }
+  return (
+    <div style={{
+      transform: `rotate(${rotation}deg)`,
+      position: 'relative',
+      zIndex,
+      filter: 'drop-shadow(0 28px 48px rgba(0,0,0,0.45)) drop-shadow(0 6px 16px rgba(0,0,0,0.28))',
+    }}>
+      {/* Action button */}
+      <div style={{ ...btnBase, left: -4, top: 56, width: 4, height: 16, background: 'linear-gradient(to right, #4a4a4c, #3a3a3c)', borderRadius: '3px 1px 1px 3px' }} />
+      {/* Volume up */}
+      <div style={{ ...btnBase, left: -4, top: 88, width: 4, height: 30, background: 'linear-gradient(to right, #4a4a4c, #3a3a3c)', borderRadius: '3px 1px 1px 3px' }} />
+      {/* Volume down */}
+      <div style={{ ...btnBase, left: -4, top: 126, width: 4, height: 30, background: 'linear-gradient(to right, #4a4a4c, #3a3a3c)', borderRadius: '3px 1px 1px 3px' }} />
+      {/* Power / side button */}
+      <div style={{ ...btnBase, right: -4, top: 104, width: 4, height: 46, background: 'linear-gradient(to left, #4a4a4c, #3a3a3c)', borderRadius: '1px 3px 3px 1px' }} />
+
+      {/* Titanium outer shell */}
+      <div style={{
+        width: 215,
+        height: 460,
+        borderRadius: 48,
+        background: 'linear-gradient(160deg, #484849 0%, #2e2e30 45%, #1e1e20 100%)',
+        padding: '3px',
+        boxShadow: `
+          0 0 0 1px rgba(255,255,255,0.18),
+          inset 0 1px 0 rgba(255,255,255,0.12),
+          inset 0 -1px 0 rgba(0,0,0,0.4)
+        `,
+      }}>
+        {/* Inner black bezel — the glass sits inside the metal ring */}
+        <div style={{
+          width: '100%',
+          height: '100%',
+          borderRadius: 45,
+          background: '#000',
+          padding: '7px',
+          boxShadow: 'inset 0 0 0 0.5px rgba(255,255,255,0.06)',
+        }}>
+          {/* Screen */}
+          <div style={{ width: '100%', height: '100%', borderRadius: 38, background: '#000', overflow: 'hidden', position: 'relative' }}>
+            {/* Dynamic Island */}
+            <div style={{
+              position: 'absolute', top: 11, left: '50%', transform: 'translateX(-50%)',
+              width: 78, height: 22, borderRadius: 11,
+              background: '#000',
+              boxShadow: '0 0 0 1.5px #1a1a1a',
+              zIndex: 10,
+            }} />
+            <img
+              src={screen}
+              alt="App screenshot"
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function TwoPhonesDisplay() {
   const ref = useScrollReveal()
   return (
     <div
       ref={ref}
-      className={`reveal reveal-delay-${delay} diff-phone`}
-      style={{
-        transform: `rotate(${rotation}deg) translateY(${nudgeY}px)`,
-        flexShrink: 0,
-        position: 'relative',
-      }}
+      className="reveal reveal-delay-1 diff-phone"
+      style={{ position: 'relative', width: 390, height: 480, flexShrink: 0 }}
     >
-      {/* Volume buttons */}
-      <div style={{ position: 'absolute', left: -4, top: 100, width: 4, height: 26, borderRadius: '3px 0 0 3px', background: '#2a2a2a' }} />
-      <div style={{ position: 'absolute', left: -4, top: 136, width: 4, height: 26, borderRadius: '3px 0 0 3px', background: '#2a2a2a' }} />
-      {/* Power button */}
-      <div style={{ position: 'absolute', right: -4, top: 118, width: 4, height: 40, borderRadius: '0 3px 3px 0', background: '#2a2a2a' }} />
-
-      {/* Phone body */}
-      <div
-        style={{
-          width: 220,
-          height: 440,
-          borderRadius: 42,
-          background: '#111',
-          padding: 10,
-          boxShadow: '0 40px 100px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.07)',
-        }}
-      >
-        {/* Screen */}
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            borderRadius: 32,
-            background: '#e8e8e8',
-            overflow: 'hidden',
-            position: 'relative',
-          }}
-        >
-          {/* Dynamic Island */}
-          <div
-            style={{
-              position: 'absolute',
-              top: 12,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: 80,
-              height: 22,
-              borderRadius: 11,
-              background: '#111',
-              zIndex: 10,
-            }}
-          />
-          {/* Placeholder screen */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(170deg, #f4f4f4 0%, #e2e2e2 100%)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 10,
-              paddingTop: 44,
-            }}
-          >
-            <div
-              style={{
-                width: 64,
-                height: 64,
-                borderRadius: 16,
-                background: 'rgba(249,115,22,0.12)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <div
-                style={{
-                  width: 28,
-                  height: 28,
-                  borderRadius: '50%',
-                  background: 'var(--accent)',
-                  opacity: 0.6,
-                }}
-              />
-            </div>
-            <span
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 11,
-                color: '#bbb',
-                letterSpacing: '0.04em',
-              }}
-            >
-              App Preview
-            </span>
-          </div>
-        </div>
+      {/* Left phone — behind, tilted left */}
+      <div style={{ position: 'absolute', left: 0, top: 50, zIndex: 1 }}>
+        <PhoneFrame screen={leagueScreen} rotation={-12} zIndex={1} />
+      </div>
+      {/* Right phone — front, tilted right */}
+      <div style={{ position: 'absolute', right: 0, top: 0, zIndex: 2 }}>
+        <PhoneFrame screen={mapScreen} rotation={7} zIndex={2} />
       </div>
     </div>
   )
@@ -113,69 +94,40 @@ export default function Differentiator() {
   return (
     <section
       style={{
-        padding: 'clamp(48px, 6vw, 80px) 24px',
+        padding: 'clamp(24px, 3vw, 40px) 24px clamp(48px, 6vw, 72px)',
         background: '#F5F4F1',
         textAlign: 'center',
         position: 'relative',
         overflow: 'visible',
       }}
     >
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: 600,
-          height: 200,
-          background: 'radial-gradient(ellipse at bottom, rgba(249,115,22,0.08) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
+      <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: 600, height: 200, background: 'radial-gradient(ellipse at bottom, rgba(249,115,22,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
       <div
+        className="diff-row"
         style={{
-          maxWidth: 1200,
+          maxWidth: 1100,
           margin: '0 auto',
           position: 'relative',
           zIndex: 1,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: 48,
+          gap: 64,
         }}
       >
-        <PhoneMockup rotation={-8} nudgeY={-20} delay={1} />
-
-        {/* Center text */}
-        <div style={{ flex: '1 1 300px', maxWidth: 480, textAlign: 'center' }}>
+        {/* Text */}
+        <div style={{ flex: '1 1 300px', maxWidth: 460, textAlign: 'left' }}>
           <p
             className="reveal"
-            style={{
-              fontFamily: "'Archivo', sans-serif",
-              fontWeight: 700,
-              fontSize: 11,
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              color: 'var(--accent)',
-              marginBottom: 16,
-            }}
+            style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}
           >
             How You Win
           </p>
           <h2
             ref={heading}
             className="reveal reveal-delay-1"
-            style={{
-              fontFamily: "'Archivo', sans-serif",
-              fontWeight: 900,
-              fontSize: 'clamp(32px, 4vw, 52px)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.02em',
-              lineHeight: 1.0,
-              color: 'var(--text)',
-              margin: '0 0 20px',
-            }}
+            style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 'clamp(36px, 4.5vw, 58px)', textTransform: 'uppercase', letterSpacing: '0.01em', lineHeight: 1.0, color: 'var(--text)', margin: '0 0 20px' }}
           >
             RUN YOUR MILES.<br />
             <span style={{ color: 'var(--accent)' }}>GET PAID.</span>
@@ -183,19 +135,13 @@ export default function Differentiator() {
           <p
             ref={sub}
             className="reveal reveal-delay-2"
-            style={{
-              color: 'var(--text-muted)',
-              fontSize: 'clamp(14px, 1.3vw, 15px)',
-              lineHeight: 1.6,
-              maxWidth: 400,
-              margin: '0 auto',
-            }}
+            style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px, 1.3vw, 15px)', lineHeight: 1.6, maxWidth: 380, margin: 0 }}
           >
             Hit your weekly goal and your stake is protected. Everyone who shows up shares the pot.
           </p>
         </div>
 
-        <PhoneMockup rotation={8} nudgeY={20} delay={2} />
+        <TwoPhonesDisplay />
       </div>
     </section>
   )

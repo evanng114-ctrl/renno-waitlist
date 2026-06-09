@@ -239,7 +239,7 @@
   }
   .cta-quotes-col {
     padding-top: 0;
-    padding-bottom: 80px;
+    padding-bottom: 0;
   }
   .cta-zigzag {
     flex-direction: column !important;

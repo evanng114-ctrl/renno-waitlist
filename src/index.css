@@ -238,13 +238,13 @@
     color: var(--accent) !important;
   }
   .cta-quotes-col {
-    padding-top: 20px;
+    padding-top: 0;
     padding-bottom: 80px;
   }
   .cta-zigzag {
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 20px !important;
+    gap: 8px !important;
   }
   .cta-center-box {
     order: 2 !important;

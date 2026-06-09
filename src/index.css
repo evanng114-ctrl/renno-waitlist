@@ -227,7 +227,10 @@
 /* FinalCTA testimonials — show on mobile, box first then one slider */
 @media (max-width: 900px) {
   .cta-top-blend {
-    height: 90px !important;
+    height: 80px !important;
+  }
+  .cta-quotes-col {
+    padding-top: 88px;
   }
   .cta-zigzag {
     flex-direction: column !important;

@@ -95,13 +95,13 @@ export default function FinalCTA() {
     <section style={{ padding: 'clamp(48px, 5vw, 64px) 24px', background: '#000', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${joinLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.82) 100%)' }} />
-      <div className="cta-top-blend" style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 52, background: 'linear-gradient(to bottom, #F5F4F1, transparent)', zIndex: 1, pointerEvents: 'none' }} />
+      <div className="cta-top-blend" style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 52, background: 'linear-gradient(to bottom, #F5F4F1 0%, rgba(245,244,241,0.85) 25%, rgba(245,244,241,0.5) 55%, rgba(245,244,241,0.15) 80%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 52, background: 'linear-gradient(to bottom, transparent, #F4F3F0)', zIndex: 1, pointerEvents: 'none' }} />
 
       <div className="cta-zigzag" style={{ maxWidth: 1400, margin: '0 auto', position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32 }}>
 
         <div className="cta-quotes-col" style={{ flex: '1 1 0', minWidth: 0 }}>
-          <p style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: 14 }}>
+          <p style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 14 }}>
             What People Are Saying
           </p>
           <TestimonialSlider items={LEFT} startDelay={0} />
@@ -128,7 +128,7 @@ export default function FinalCTA() {
         </div>
 
         <div className="cta-quotes-col" style={{ flex: '1 1 0', minWidth: 0 }}>
-          <p style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: 14 }}>
+          <p style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 14 }}>
             What People Are Saying
           </p>
           <TestimonialSlider items={RIGHT} startDelay={1500} />

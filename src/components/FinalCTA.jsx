@@ -101,6 +101,9 @@ export default function FinalCTA() {
       <div className="cta-zigzag" style={{ maxWidth: 1400, margin: '0 auto', position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32 }}>
 
         <div className="cta-quotes-col" style={{ flex: '1 1 0', minWidth: 0 }}>
+          <p style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: 14 }}>
+            What People Are Saying
+          </p>
           <TestimonialSlider items={LEFT} startDelay={0} />
         </div>
 
@@ -125,6 +128,9 @@ export default function FinalCTA() {
         </div>
 
         <div className="cta-quotes-col" style={{ flex: '1 1 0', minWidth: 0 }}>
+          <p style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: 14 }}>
+            What People Are Saying
+          </p>
           <TestimonialSlider items={RIGHT} startDelay={1500} />
         </div>
 

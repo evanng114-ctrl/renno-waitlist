@@ -72,6 +72,7 @@ export default function StatsBar() {
           margin: '0 auto',
           display: 'flex',
           alignItems: 'stretch',
+          paddingBottom: 72,
         }}
       >
         <Stat
@@ -94,7 +95,7 @@ export default function StatsBar() {
           note="Hit it. Keep it."
         />
       </div>
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.7) 60%, #fff 100%)', zIndex: 1, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.18) 70%, rgba(0,0,0,0.32) 100%)', zIndex: 1, pointerEvents: 'none' }} />
     </section>
   )
 }

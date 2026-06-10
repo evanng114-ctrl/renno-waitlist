@@ -47,7 +47,7 @@ export default function PersonasSection() {
 
   return (
     <section style={{ background: 'var(--bg)', padding: 'clamp(48px, 6vw, 80px) 24px', overflow: 'hidden', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0.7) 40%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 120, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.7) 60%, #fff 100%)', zIndex: 1, pointerEvents: 'none' }} />
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
@@ -129,13 +129,13 @@ export default function PersonasSection() {
                     : 'opacity 0.15s ease, transform 0.15s ease',
                   pointerEvents: isActive ? 'auto' : 'none',
                 }}>
-                  <h3 style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 'clamp(36px, 4.5vw, 58px)', textTransform: 'uppercase', letterSpacing: '-0.02em', lineHeight: 1.0, color: '#fff', margin: '0 0 4px', textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}>
+                  <h3 style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 'clamp(26px, 3vw, 40px)', textTransform: 'uppercase', letterSpacing: '-0.02em', lineHeight: 1.0, color: '#fff', margin: '0 0 4px', textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}>
                     {p.headline}
                   </h3>
-                  <h3 style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 'clamp(36px, 4.5vw, 58px)', textTransform: 'uppercase', letterSpacing: '-0.02em', lineHeight: 1.0, color: p.accentColor, margin: '0 0 20px', textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
+                  <h3 style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 'clamp(26px, 3vw, 40px)', textTransform: 'uppercase', letterSpacing: '-0.02em', lineHeight: 1.0, color: p.accentColor, margin: '0 0 16px', textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
                     {p.accent}
                   </h3>
-                  <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 16, lineHeight: 1.6, margin: 0, maxWidth: 340, textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
+                  <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 14, lineHeight: 1.6, margin: 0, maxWidth: 340, textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
                     {p.description}
                   </p>
                 </div>

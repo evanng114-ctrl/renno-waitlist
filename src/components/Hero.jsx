@@ -48,15 +48,14 @@ export default function Hero() {
         }}
       />
 
-      {/* Bottom blend into StatsBar */}
       <div
         style={{
           position: 'absolute',
           bottom: 0,
           left: 0,
           right: 0,
-          height: 52,
-          background: 'linear-gradient(to bottom, transparent, #F5F4F1)',
+          height: 80,
+          background: 'linear-gradient(to bottom, transparent, #000)',
           zIndex: 1,
           pointerEvents: 'none',
         }}

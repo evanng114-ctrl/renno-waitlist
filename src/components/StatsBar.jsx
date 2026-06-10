@@ -72,7 +72,7 @@ export default function StatsBar() {
           margin: '0 auto',
           display: 'flex',
           alignItems: 'stretch',
-          paddingBottom: 52,
+          paddingBottom: 64,
         }}
       >
         <Stat
@@ -81,21 +81,19 @@ export default function StatsBar() {
           label="Lost if you hit your goal"
           note="Your stake is always protected"
         />
-        <div className="stats-divider-v" style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
         <Stat
           suffix="%"
           target={100}
           label="Of the pool goes to runners"
           note="No house cut. Ever."
         />
-        <div className="stats-divider-v" style={{ width: 1, background: 'var(--border)', alignSelf: 'stretch', margin: '20px 0' }} />
         <Stat
           target={1}
           label="Goal between you and your money"
           note="Hit it. Keep it."
         />
       </div>
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.45) 70%, rgba(0,0,0,0.65) 100%)', zIndex: 1, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 140, background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.95) 38%, rgba(255,255,255,0.95) 48%, rgba(0,0,0,0.45) 75%, rgba(0,0,0,0.65) 100%)', zIndex: 1, pointerEvents: 'none' }} />
     </section>
   )
 }

@@ -56,8 +56,8 @@
 /* Scroll reveal animation */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
@@ -246,15 +246,36 @@
   .diff-row > div:first-child h2 {
     text-align: center !important;
   }
-  .diff-subtitle {
-    color: rgba(255,255,255,0.48) !important;
-  }
+  /* Container: keep scale, suppress the default reveal fade so phone wrappers own the animation */
   .diff-phone {
     display: block !important;
-    transform: scale(0.65) !important;
+    opacity: 1 !important;
+    transform: scale(0.78) !important;
     transform-origin: top center !important;
-    margin-top: -40px !important;
-    margin-bottom: -148px !important;
+    margin-top: -50px !important;
+    margin-bottom: -104px !important;
+    transition: none !important;
+  }
+  /* Left phone slides in from left */
+  .phone-wrap-left {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  /* Right phone slides in from right, slight delay */
+  .phone-wrap-right {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 0.75s ease 0.18s, transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.18s;
+  }
+  /* Trigger when scroll reveal fires on parent */
+  .diff-phone.visible .phone-wrap-left {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .diff-phone.visible .phone-wrap-right {
+    opacity: 1;
+    transform: translateX(0);
   }
   .diff-section {
     z-index: 5 !important;
@@ -303,6 +324,16 @@
     transform: scale(0.68);
     transform-origin: center;
     gap: 20px !important;
+  }
+}
+
+/* Personas expanding panels — mobile */
+@media (max-width: 900px) {
+  .personas-row {
+    display: none !important;
+  }
+  .personas-mobile {
+    display: flex !important;
   }
 }
 

@@ -89,6 +89,7 @@ export default function HowItWorks() {
 
   return (
     <section
+      className="hiw-section"
       style={{
         padding: 'clamp(48px, 6vw, 72px) 24px',
         background: '#000',

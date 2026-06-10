@@ -14,7 +14,7 @@ export function useScrollReveal() {
           observer.disconnect()
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.01, rootMargin: '0px 0px 80px 0px' }
     )
 
     observer.observe(el)

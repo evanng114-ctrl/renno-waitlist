@@ -3,26 +3,15 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const PERSONAS = [
   {
-    id: 'new-runner',
-    label: 'New to Running',
-    eyebrow: 'GETTING STARTED',
-    headline: 'YOUR FIRST RACE.',
-    accent: 'NO PRESSURE.',
-    accentColor: '#F97316',
-    description: 'Set a small stake, hit your goal, get paid. When money\'s on the line, you actually lace up.',
-    bg: 'linear-gradient(160deg, #1c2840 0%, #0d1520 100%)',
-    border: 'rgba(249,115,22,0.3)',
-  },
-  {
     id: 'coach',
     label: 'Coach or Team',
     eyebrow: 'COACHES & TEAMS',
     headline: 'YOUR ROSTER.',
     accent: 'ALL SEASON.',
-    accentColor: '#a78bfa',
+    accentColor: '#D4A017',
     description: 'Team-wide mileage goals with real stakes. When money\'s on the line, training days don\'t get skipped.',
-    bg: 'linear-gradient(160deg, #1a1535 0%, #0e0c20 100%)',
-    border: 'rgba(167,139,250,0.3)',
+    bg: 'linear-gradient(160deg, #1e1a06 0%, #100e02 100%)',
+    border: 'rgba(212,160,23,0.35)',
   },
   {
     id: 'run-club',
@@ -30,10 +19,21 @@ const PERSONAS = [
     eyebrow: 'RUN CLUBS',
     headline: 'YOUR GROUP.',
     accent: 'YOUR LEAGUE.',
-    accentColor: '#34d399',
+    accentColor: '#F97316',
     description: 'Turn weekly miles into friendly competition. Every member runs for their stake and shares the pot.',
-    bg: 'linear-gradient(160deg, #0b2318 0%, #071510 100%)',
-    border: 'rgba(52,211,153,0.3)',
+    bg: 'linear-gradient(160deg, #1a0e04 0%, #0e0802 100%)',
+    border: 'rgba(249,115,22,0.35)',
+  },
+  {
+    id: 'new-runner',
+    label: 'New to Running',
+    eyebrow: 'GETTING STARTED',
+    headline: 'YOUR FIRST RACE.',
+    accent: 'NO PRESSURE.',
+    accentColor: '#E2B93A',
+    description: 'Set a small stake, hit your goal, get paid. When money\'s on the line, you actually lace up.',
+    bg: 'linear-gradient(160deg, #1a1508 0%, #0f0d04 100%)',
+    border: 'rgba(226,185,58,0.3)',
   },
 ]
 
@@ -43,7 +43,9 @@ export default function PersonasSection() {
   const sub = useScrollReveal()
 
   return (
-    <section style={{ background: 'var(--bg)', padding: 'clamp(48px, 6vw, 80px) 24px', overflow: 'hidden' }}>
+    <section style={{ background: 'var(--bg)', padding: 'clamp(48px, 6vw, 80px) 24px', overflow: 'hidden', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 56, background: 'linear-gradient(to bottom, #fff, transparent)', zIndex: 1, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 56, background: 'linear-gradient(to bottom, transparent, #fff)', zIndex: 1, pointerEvents: 'none' }} />
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* Header */}
@@ -137,7 +139,7 @@ export default function PersonasSection() {
                   <h3 style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 'clamp(24px, 2.5vw, 36px)', textTransform: 'uppercase', letterSpacing: '-0.01em', lineHeight: 1.05, color: p.accentColor, margin: '0 0 16px' }}>
                     {p.accent}
                   </h3>
-                  <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 340 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 14, lineHeight: 1.65, margin: 0, maxWidth: 340 }}>
                     {p.description}
                   </p>
                 </div>
@@ -159,7 +161,7 @@ export default function PersonasSection() {
               <h3 style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 28, textTransform: 'uppercase', letterSpacing: '-0.01em', lineHeight: 1.05, color: p.accentColor, margin: '0 0 14px' }}>
                 {p.accent}
               </h3>
-              <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
+              <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 14, lineHeight: 1.65, margin: 0 }}>
                 {p.description}
               </p>
             </div>

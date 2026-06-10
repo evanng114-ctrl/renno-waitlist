@@ -104,7 +104,7 @@ export default function Differentiator() {
       }}
     >
       <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: 600, height: 200, background: 'radial-gradient(ellipse at bottom, rgba(249,115,22,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
-      <div className="diff-bottom-blend" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0.75) 100%)', zIndex: 3, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 56, background: 'linear-gradient(to bottom, #fff, transparent)', zIndex: 3, pointerEvents: 'none' }} />
 
       <div
         className="diff-row"

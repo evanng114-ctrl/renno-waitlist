@@ -205,9 +205,8 @@ export default function Hero() {
             ))}
           </div>
           <span style={{ color: 'rgba(242,242,247,0.7)', fontSize: 14 }}>
-            Join{' '}
             <span style={{ color: '#F2F2F7', fontWeight: 600 }}>1,200+ runners</span>{' '}
-            already in line
+            already on the waitlist
           </span>
         </div>
       </div>

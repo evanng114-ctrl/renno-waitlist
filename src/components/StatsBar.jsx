@@ -94,6 +94,7 @@ export default function StatsBar() {
           note="Hit it. Keep it."
         />
       </div>
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 56, background: 'linear-gradient(to bottom, transparent, #fff)', zIndex: 1, pointerEvents: 'none' }} />
     </section>
   )
 }

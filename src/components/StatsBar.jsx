@@ -1,4 +1,5 @@
 import { useCountUp } from '../hooks/useCountUp'
+import createLeagueBg from '../assets/create-league-bg.jpg'
 
 function Stat({ prefix = '', suffix = '', target, label, note }) {
   const { value, ref } = useCountUp(target)
@@ -11,7 +12,7 @@ function Stat({ prefix = '', suffix = '', target, label, note }) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '16px 16px',
+        padding: '24px 16px 40px',
         textAlign: 'center',
       }}
     >
@@ -35,20 +36,14 @@ function Stat({ prefix = '', suffix = '', target, label, note }) {
           fontSize: 'clamp(13px, 1.8vw, 15px)',
           textTransform: 'uppercase',
           letterSpacing: '0.12em',
-          color: 'var(--text)',
+          color: '#FFFFFF',
           marginBottom: 4,
         }}
       >
         {label}
       </div>
       {note && (
-        <div
-          style={{
-            fontSize: 12,
-            color: 'var(--text-muted)',
-            letterSpacing: '0.04em',
-          }}
-        >
+        <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', letterSpacing: '0.04em' }}>
           {note}
         </div>
       )}
@@ -58,42 +53,18 @@ function Stat({ prefix = '', suffix = '', target, label, note }) {
 
 export default function StatsBar() {
   return (
-    <section
-      style={{
-        background: '#F5F4F1',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
+    <section style={{ background: '#000', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${createLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.72) 100%)' }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, transparent, #F4F3F0)', zIndex: 2, pointerEvents: 'none' }} />
       <div
         className="stats-row"
-        style={{
-          maxWidth: 1200,
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'stretch',
-          paddingBottom: 56,
-        }}
+        style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'stretch', position: 'relative', zIndex: 3 }}
       >
-        <Stat
-          prefix="$"
-          target={0}
-          label="Lost if you hit your goal"
-          note="Your stake is always protected"
-        />
-        <Stat
-          suffix="%"
-          target={100}
-          label="Of the pool goes to runners"
-          note="No house cut. Ever."
-        />
-        <Stat
-          target={1}
-          label="Goal between you and your money"
-          note="Hit it. Keep it."
-        />
+        <Stat prefix="$" target={0} label="Lost if you hit your goal" note="Your stake is always protected" />
+        <Stat suffix="%" target={100} label="Of the pool goes to runners" note="No house cut. Ever." />
+        <Stat target={1} label="Goal between you and your money" note="Hit it. Keep it." />
       </div>
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 120, background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 100%)', zIndex: 1, pointerEvents: 'none' }} />
     </section>
   )
 }

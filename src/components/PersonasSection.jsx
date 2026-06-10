@@ -47,7 +47,7 @@ export default function PersonasSection() {
 
   return (
     <section style={{ background: 'var(--bg)', padding: 'clamp(48px, 6vw, 80px) 24px', overflow: 'hidden', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 120, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 60, background: 'linear-gradient(to bottom, #F4F3F0, transparent)', zIndex: 1, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.7) 60%, #fff 100%)', zIndex: 1, pointerEvents: 'none' }} />
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 

@@ -92,15 +92,11 @@ export default function HowItWorks() {
       className="hiw-section"
       style={{
         padding: 'clamp(48px, 6vw, 72px) 24px',
-        background: '#000',
+        background: 'transparent',
         position: 'relative',
-        overflow: 'hidden',
       }}
     >
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundImage: `url(${createLeagueBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.72) 100%)' }} />
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, #000, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-      <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 2 }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative' }}>
         <div
           ref={header}
           className="reveal hiw-header"

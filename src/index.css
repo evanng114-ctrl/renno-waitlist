@@ -71,6 +71,158 @@
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
+/* Animated hero headline — plays once, rests on "I ran today." */
+.renno-rewrite {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-size: clamp(22px, 10vw, 120px);
+}
+.renno-rewrite .rw-old,
+.renno-rewrite .rw-new {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+.rw-old {
+  position: relative;
+  color: rgba(255,255,255,0.45);
+  animation: rwOldOut 7s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+.rw-strike {
+  position: absolute;
+  left: -4px;
+  top: 52%;
+  height: 0.07em;
+  width: 0;
+  background: #FF5F57;
+  animation: rwStrike 7s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+.rw-new {
+  color: #ffffff;
+  opacity: 0;
+  animation: rwNewIn 7s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+.rw-today {
+  position: relative;
+  background: linear-gradient(90deg, #F2C018 28%, #FFD700 43%, #FFF566 50%, #FFD700 57%, #F2C018 72%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShine 6s ease-in-out infinite;
+}
+.rw-underline {
+  position: absolute;
+  left: 0;
+  bottom: -0.12em;
+  height: 0.07em;
+  width: 0;
+  background: #FFD700;
+  animation: rwUnderline 7s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+/* 7s loop — reset at ~5.5s (80% of 7s = 5.6s) */
+@keyframes rwStrike {
+  0%       { width: 0; }
+  14%, 80% { width: calc(100% + 8px); }
+  91%,100% { width: 0; }
+}
+@keyframes rwOldOut {
+  0%, 14%  { opacity: 1; transform: translateY(0); }
+  22%, 88% { opacity: 0; transform: translateY(-0.3em); }
+  96%,100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes rwNewIn {
+  0%, 22%  { opacity: 0; transform: translateY(0.35em); }
+  30%, 80% { opacity: 1; transform: translateY(0); }
+  90%,100% { opacity: 0; transform: translateY(0); }
+}
+@keyframes rwUnderline {
+  0%, 32%  { width: 0; }
+  40%, 80% { width: 100%; }
+  90%,100% { width: 0; }
+}
+
+@media (max-width: 768px) {
+  /* Two-tier headline: old line small, new line large */
+  .renno-rewrite { align-items: center; }
+  .rw-old { font-size: 6.5vw !important; }
+  .rw-new { font-size: 16vw !important; }
+  /* Eyebrow: grey like desktop, pushed down from nav */
+  .hero-eyebrow { color: rgba(242,242,247,0.45) !important; margin-top: 32px; display: block; }
+  /* Nav button: smaller padding on tiny screens */
+  .nav-cta { font-size: 11px !important; padding: 7px 12px !important; }
+  /* Avatar circles less overlap */
+  .avatar-item { margin-left: -4px !important; }
+  /* Social proof: stack avatars above text on mobile */
+  .social-proof-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rw-old { display: none; }
+  .rw-new { opacity: 1; transform: none; animation: none; }
+  .rw-underline { width: 100%; animation: none; }
+}
+
+/* Testimonial marquee ticker */
+@keyframes rennoMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.rmq-wrap { overflow: hidden; }
+.rmq-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: rennoMarquee 40s linear infinite;
+}
+.rmq-wrap:hover .rmq-track { animation-play-state: paused; }
+.rmq-card {
+  flex: 0 0 320px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.rmq-q {
+  color: rgba(255,255,255,0.88);
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+.rmq-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: 12px;
+}
+.rmq-meta { color: rgba(255,255,255,0.45); font-size: 11px; margin-top: 2px; }
+.rmq-stars { color: var(--accent); font-size: 11px; letter-spacing: 2px; margin-bottom: 8px; }
+
+@media (max-width: 768px) {
+  .rmq-card { flex: 0 0 260px; padding: 14px 16px; }
+  .rmq-q { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rmq-track { animation: none; overflow-x: auto; }
+}
+
 /* Gold shine sweep for MONEY */
 @keyframes goldShine {
   0% { background-position: -200% center; }
@@ -78,7 +230,7 @@
 }
 
 .gold-shine {
-  background: linear-gradient(90deg, #C49612 35%, #E2B93A 47%, #ECC94B 50%, #E2B93A 53%, #C49612 65%);
+  background: linear-gradient(90deg, #F2C018 28%, #FFD700 43%, #FFF566 50%, #FFD700 57%, #F2C018 72%);
   background-size: 300% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -116,7 +268,7 @@
 }
 
 .btn-lime:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.97);
   box-shadow: 0 0 12px rgba(249,115,22,0.4);
 }
 
@@ -131,7 +283,7 @@
   background-color: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Archivo', sans-serif;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -177,6 +329,7 @@
     padding: 100px 24px 72px !important;
   }
 }
+
 
 /* Mobile-first responsive adjustments */
 @media (max-width: 480px) {
@@ -282,7 +435,7 @@
   }
 }
 
-/* FinalCTA testimonials — show on mobile, box first then one slider */
+/* FinalCTA mobile */
 @media (max-width: 900px) {
   .cta-section {
     padding-top: 24px !important;
@@ -294,27 +447,14 @@
   .cta-bottom-blend {
     height: 120px !important;
   }
-.cta-quotes-col {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  .cta-zigzag {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 8px !important;
-  }
   .cta-center-box {
-    order: 2 !important;
     width: 100% !important;
     max-width: 100% !important;
+    padding: 28px 24px !important;
   }
-  .cta-quotes-col {
-    display: block !important;
-    order: 1 !important;
-    width: 100% !important;
-  }
-  .cta-quotes-col:last-child {
-    display: none !important;
+  .cta-box-inner {
+    flex-direction: column !important;
+    gap: 28px !important;
   }
 }
 
@@ -327,6 +467,33 @@
   }
 }
 
+/* Why Renno progress bar */
+@keyframes whyProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .why-renno-section > div {
+    flex-direction: column !important;
+  }
+  .why-phone-col {
+    width: 100% !important;
+  }
+}
+
+/* HowItWorksScreens — stack on mobile */
+@media (max-width: 768px) {
+  .hiw-screens-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 48px !important;
+  }
+  .hiw-screen-col {
+    max-width: 260px !important;
+  }
+}
+
 /* Personas expanding panels — mobile */
 @media (max-width: 900px) {
   .personas-row {
@@ -334,6 +501,9 @@
   }
   .personas-mobile {
     display: flex !important;
+  }
+  .diff-persona-bridge {
+    display: none !important;
   }
 }
 

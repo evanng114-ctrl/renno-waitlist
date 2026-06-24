@@ -51,7 +51,28 @@ export default function Navbar() {
           RENN<span style={{ color: 'var(--accent)' }}>O</span>
         </div>
 
-        {/* Join Waitlist button removed */}
+        <a
+          href="#"
+          className="nav-cta"
+          style={{
+            fontFamily: "'Archivo', sans-serif",
+            fontWeight: 800,
+            fontSize: 12,
+            letterSpacing: '0.07em',
+            textTransform: 'uppercase',
+            color: '#fff',
+            background: 'linear-gradient(135deg, #F97316, #C2410C)',
+            padding: '8px 18px',
+            borderRadius: 6,
+            textDecoration: 'none',
+            transition: 'opacity 0.2s ease, transform 0.15s ease',
+            whiteSpace: 'nowrap',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.88'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+          onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)' }}
+        >
+          Join the Race
+        </a>
       </div>
     </nav>
   )

@@ -73,7 +73,7 @@ function TwoPhonesDisplay() {
     <div
       ref={ref}
       className="reveal reveal-delay-1 diff-phone"
-      style={{ position: 'relative', width: 430, height: 480, flexShrink: 0 }}
+      style={{ position: 'relative', width: 430, height: 480, flexShrink: 0, willChange: 'transform' }}
     >
       {/* Left phone — behind, tilted left */}
       <div className="phone-wrap-left" style={{ position: 'absolute', left: 0, top: 50, zIndex: 1 }}>
@@ -100,11 +100,11 @@ export default function Differentiator() {
         textAlign: 'center',
         position: 'relative',
         overflow: 'visible',
-      willChange: 'transform',
+        zIndex: 1,
       }}
     >
       <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: 600, height: 200, background: 'radial-gradient(ellipse at bottom, rgba(249,115,22,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0.7) 40%, transparent 100%)', zIndex: 3, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, #F4F3F0 0%, rgba(244,243,240,0.7) 40%, transparent 100%)', zIndex: 3, pointerEvents: 'none' }} />
 
       <div
         className="diff-row"
@@ -121,15 +121,9 @@ export default function Differentiator() {
       >
         {/* Text */}
         <div style={{ flex: '1 1 300px', maxWidth: 460, textAlign: 'left' }}>
-          <p
-            className="reveal"
-            style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}
-          >
-            How You Win
-          </p>
           <h2
             ref={heading}
-            className="reveal reveal-delay-1"
+            className="reveal"
             style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 'clamp(36px, 4.5vw, 58px)', textTransform: 'uppercase', letterSpacing: '0.01em', lineHeight: 1.0, color: 'var(--text)', margin: '0 0 20px' }}
           >
             RUN YOUR MILES.<br />

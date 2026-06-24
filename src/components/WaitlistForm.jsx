@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function WaitlistForm({ compact = false }) {
   const [email, setEmail] = useState('')
@@ -12,19 +12,10 @@ export default function WaitlistForm({ compact = false }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
-
-    if (!validate(email)) {
-      setError('Enter a valid email address.')
-      return
-    }
-
+    if (!validate(email)) { setError('Enter a valid email address.'); return }
     setLoading(true)
     try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      })
+      const res = await fetch('/api/waitlist', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) })
       if (!res.ok) throw new Error('server')
       setSuccess(true)
     } catch {
@@ -34,134 +25,67 @@ export default function WaitlistForm({ compact = false }) {
     }
   }
 
-  if (success) {
-    return (
-      <div
-        style={{
-          textAlign: 'center',
-          padding: compact ? '20px 0' : '32px',
-          border: '1px solid rgba(249,115,22,0.25)',
-          borderRadius: 12,
-          background: 'var(--accent-glow)',
-          maxWidth: 480,
-          margin: '0 auto',
-        }}
-      >
-        <div
-          style={{
-            fontFamily: "'Archivo', sans-serif",
-            fontWeight: 900,
-            fontSize: compact ? 22 : 28,
-            color: 'var(--accent)',
-            letterSpacing: '0.04em',
-            textTransform: 'uppercase',
-            marginBottom: 12,
-          }}
-        >
-          YOU'RE IN.
-        </div>
-        <div
-          style={{
-            fontFamily: "'Archivo', sans-serif",
-            fontWeight: 800,
-            fontSize: compact ? 16 : 20,
-            color: 'rgba(255,255,255,0.9)',
-            letterSpacing: '0.02em',
-            marginBottom: 16,
-          }}
-        >
-          Welcome to the pack.
-        </div>
-        <p
-          style={{
-            color: 'rgba(255,255,255,0.6)',
-            fontSize: 14,
-            lineHeight: 1.6,
-          }}
-        >
-          Share with your crew. Bigger pack, bigger pot.
-        </p>
-        <button
-          onClick={() => {
-            if (navigator.share) {
-              navigator.share({ title: 'Renno', text: "Stake money on your weekly mileage. Keep it if you hit your goal, win the pool if others don't. Join the waitlist.", url: window.location.href })
-            } else {
-              navigator.clipboard?.writeText(window.location.href)
-              alert('Link copied!')
-            }
-          }}
-          className="btn-lime"
-          style={{
-            marginTop: 16,
-            padding: '11px 28px',
-            borderRadius: 6,
-            fontSize: 13,
-            letterSpacing: '0.07em',
-          }}
-        >
-          Share the Link
-        </button>
-      </div>
-    )
-  }
-
   return (
-    <form onSubmit={handleSubmit} noValidate>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12,
-          maxWidth: 520,
-        }}
-      >
-        {/* Email + button row on desktop */}
-        <div
-          className="form-row"
-          style={{
-            display: 'flex',
-            gap: 10,
-            flexWrap: 'wrap',
-          }}
+    <AnimatePresence mode="wait">
+      {success ? (
+        <motion.div
+          key="success"
+          initial={{ opacity: 0, scale: 0.96, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+          style={{ textAlign: 'center', padding: compact ? '20px 0' : '32px', border: '1px solid rgba(249,115,22,0.25)', borderRadius: 12, background: 'var(--accent-glow)', maxWidth: 480, margin: '0 auto' }}
         >
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => { setEmail(e.target.value); setError('') }}
-            placeholder="your@email.com"
-            className="input-dark"
-            style={{
-              flex: '1 1 200px',
-              padding: '11px 14px',
-              borderRadius: 6,
-              fontSize: 15,
-              minWidth: 0,
+          <div style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: compact ? 22 : 28, color: 'var(--accent)', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 12 }}>YOU'RE IN.</div>
+          <div style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 800, fontSize: compact ? 16 : 20, color: 'rgba(255,255,255,0.9)', letterSpacing: '0.02em', marginBottom: 16 }}>You're on the waitlist.</div>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 14, lineHeight: 1.6 }}>We'll notify you as soon as Renno launches. Stay ready.</p>
+          <motion.button
+            whileTap={{ scale: 0.96 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            onClick={() => {
+              if (navigator.share) { navigator.share({ title: 'Renno', text: "Stake money on your weekly mileage. Keep it if you hit your goal, win the pool if others don't. Join the waitlist.", url: window.location.href }) }
+              else { navigator.clipboard?.writeText(window.location.href); alert('Link copied!') }
             }}
-            required
-            autoComplete="email"
-          />
-          <button
-            type="submit"
-            disabled={loading}
             className="btn-lime"
-            style={{
-              padding: '11px 24px',
-              borderRadius: 6,
-              fontSize: 13,
-              letterSpacing: '0.07em',
-              whiteSpace: 'nowrap',
-              flex: '1 1 auto',
-              width: '100%',
-            }}
+            style={{ marginTop: 16, padding: '11px 28px', borderRadius: 6, fontSize: 13, letterSpacing: '0.07em' }}
           >
-            {loading ? 'Joining...' : 'Join the Waitlist'}
-          </button>
-        </div>
-
-        {error && (
-          <p style={{ color: 'var(--red)', fontSize: 13, margin: 0 }}>{error}</p>
-        )}
-      </div>
-    </form>
+            Share the Link
+          </motion.button>
+        </motion.div>
+      ) : (
+        <motion.form
+          key="form"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onSubmit={handleSubmit}
+          noValidate
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 520 }}>
+            <div className="form-row" style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => { setEmail(e.target.value); setError('') }}
+                placeholder="your@email.com"
+                className="input-dark"
+                style={{ flex: '1 1 200px', padding: '11px 14px', borderRadius: 6, fontSize: 15, minWidth: 0 }}
+                required
+                autoComplete="email"
+              />
+              <motion.button
+                type="submit"
+                disabled={loading}
+                className="btn-lime"
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                style={{ padding: '11px 24px', borderRadius: 6, fontSize: 13, letterSpacing: '0.07em', whiteSpace: 'nowrap', flex: '1 1 auto', width: '100%' }}
+              >
+                {loading ? 'Getting access...' : 'GET EARLY ACCESS'}
+              </motion.button>
+            </div>
+            {error && <p style={{ color: 'var(--red)', fontSize: 13, margin: 0 }}>{error}</p>}
+          </div>
+        </motion.form>
+      )}
+    </AnimatePresence>
   )
 }

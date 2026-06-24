@@ -102,19 +102,6 @@ export default function HowItWorks() {
           className="reveal hiw-header"
           style={{ marginBottom: 56, textAlign: 'center' }}
         >
-          <p
-            style={{
-              fontFamily: "'Archivo', sans-serif",
-              fontWeight: 700,
-              fontSize: 12,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'var(--accent)',
-              marginBottom: 16,
-            }}
-          >
-            The Format
-          </p>
           <h2
             style={{
               fontFamily: "'Archivo', sans-serif",

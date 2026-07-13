@@ -53,7 +53,7 @@ export default function Support() {
         <p style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#F97316', marginBottom: 14 }}>Support</p>
         <h1 style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 900, fontSize: 'clamp(28px, 4vw, 42px)', letterSpacing: '-0.02em', color: '#111', marginBottom: 12, lineHeight: 1.1 }}>Get in touch</h1>
         <p style={{ color: '#555', fontSize: 16, lineHeight: 1.7, marginBottom: 40 }}>
-          Questions, feedback, or trouble with your account? Reach out any time — we're here to help.
+          Questions, feedback, or trouble with your account? Reach out any time. We're here to help.
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>

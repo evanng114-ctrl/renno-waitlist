@@ -10,6 +10,7 @@ import Integrations from './components/Integrations'
 import Footer from './components/Footer'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
+import Support from './pages/Support'
 
 function HomePage() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfService />} />
+      <Route path="/support" element={<Support />} />
     </Routes>
   )
 }

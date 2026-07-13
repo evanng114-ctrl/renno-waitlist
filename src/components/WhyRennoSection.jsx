@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import screenGoal from '../assets/screen-goal.png'
+import stakeSecured from '../assets/stakesecured.png'
 import screenLeaderboard from '../assets/screen-leaderboard.png'
 import watchLifestyle from '../assets/watch-lifestyle.jpg'
 import leagueScreen from '../assets/league.png'
@@ -13,7 +13,7 @@ const REASONS = [
     number: '1',
     title: 'Your stake is always protected',
     body: "Hit your weekly goal and you lose $0. The only people funding the pot are the ones who didn't show up.",
-    img: screenGoal,
+    img: stakeSecured,
     display: 'phone',
   },
   {
@@ -157,7 +157,7 @@ export default function WhyRennoSection() {
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 140, background: 'linear-gradient(to bottom, transparent 0%, #F4F3F0 100%)', zIndex: 2, pointerEvents: 'none' }} />
       {/* Preload all images */}
       <div style={{ position: 'absolute', width: 1, height: 1, opacity: 0, pointerEvents: 'none', overflow: 'hidden' }}>
-        <img src={screenGoal} alt="" /><img src={screenLeaderboard} alt="" />
+        <img src={stakeSecured} alt="" /><img src={screenLeaderboard} alt="" />
         <img src={watchLifestyle} alt="" /><img src={leagueScreen} alt="" /><img src={mapScreen} alt="" />
       </div>
 

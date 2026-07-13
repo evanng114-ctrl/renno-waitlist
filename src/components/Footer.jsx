@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const InstagramIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -96,6 +98,34 @@ export default function Footer() {
             <TikTokIcon />
           </a>
         </div>
+
+        {/* Footer nav links */}
+        <nav style={{ display: 'flex', gap: 24, flexWrap: 'wrap', justifyContent: 'center' }}>
+          {[
+            { to: '/support', label: 'Support' },
+            { to: '/privacy', label: 'Privacy' },
+            { to: '/terms', label: 'Terms' },
+          ].map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              style={{
+                fontFamily: "'Archivo', sans-serif",
+                fontWeight: 700,
+                fontSize: 12,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: 'var(--text-muted)',
+                textDecoration: 'none',
+                transition: 'color 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
 
         {/* Copyright */}
         <p

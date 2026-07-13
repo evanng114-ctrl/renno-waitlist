@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const LAST_UPDATED = 'June 20, 2026'
+const LAST_UPDATED = 'July 13, 2026'
 const EFFECTIVE_DATE = 'June 20, 2026'
 const COMPANY = 'Renno'
 const CONTACT_EMAIL = 'privacy@rennoapp.com'
@@ -51,7 +51,24 @@ export default function PrivacyPolicy() {
           <P>By accessing or using the Service, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy.</P>
         </Section>
 
-        <Section title="2. Information We Collect">
+        <Section title="2. Summary — What Renno Collects and Why">
+          <P><strong>Information We Collect</strong></P>
+          <UL items={[
+            <><strong>Account info:</strong> your phone number (for sign-in) or Apple/Google sign-in identifier, and your username, display name, and avatar.</>,
+            <><strong>Precise location:</strong> GPS location is collected only during an active run you start, to measure your distance, pace, and route. We do not track your location in the background outside of a run.</>,
+            <><strong>Health &amp; fitness data:</strong> run distance, duration, pace, and activity you record or import (e.g., from Apple Health, with your permission).</>,
+            <><strong>Device identifier:</strong> an app-generated install identifier used for first-party analytics and abuse prevention.</>,
+            <><strong>Purchase history:</strong> your Renno+ / Renno Teams subscription status (via Apple In-App Purchase). We do not receive your payment card details.</>,
+          ]} />
+          <P><strong>How We Use It</strong></P>
+          <P>To provide run tracking, races and leaderboards, your profile and stats, subscriptions, and safety/anti-cheat features.</P>
+          <P><strong>Analytics</strong></P>
+          <P>We use first-party product analytics only to understand how the app is used and improve it. We do not use third-party advertising SDKs, the advertising identifier (IDFA), or any cross-app or cross-site tracking, and we do not sell your data. Raw analytics events are retained for up to 180 days; aggregated, non-identifying statistics may be kept longer.</P>
+          <P><strong>Your Choices</strong></P>
+          <P>You can delete your account at any time in Settings → Delete account, which removes your account and associated personal data.</P>
+        </Section>
+
+        <Section title="3. Information We Collect">
           <P><strong>Information you provide directly:</strong></P>
           <UL items={[
             'Email address (when you join the waitlist or create an account)',
@@ -72,7 +89,7 @@ export default function PrivacyPolicy() {
           <P>With your explicit permission, we access running and activity data from Apple Health and connected fitness devices (Garmin, Fitbit, WHOOP, and others). We use this data solely to verify your weekly mileage goals. We do not sell, license, or share your health data with any third party for advertising or marketing purposes.</P>
         </Section>
 
-        <Section title="3. SMS and Mobile Communications">
+        <Section title="4. SMS and Mobile Communications">
           <P><strong>Non-Sharing of Mobile Numbers:</strong> We do not sell, rent, lease, or share your mobile phone number with third parties for their marketing purposes. Your mobile number is used solely for communications directly related to the Renno Service, including account notifications, goal reminders, and race results.</P>
           <P><strong>Message Frequency:</strong> Message frequency varies. You may receive transactional messages (account confirmations, goal completions, stake settlements), promotional messages (new races, features, offers), and reminder messages (upcoming goal deadlines). Typically you may receive between 2–8 messages per month depending on your activity and preferences.</P>
           <P><strong>Message and Data Rates:</strong> Message and data rates may apply. Standard messaging rates charged by your mobile carrier may apply to SMS messages you receive from us. Renno is not responsible for any charges imposed by your mobile carrier.</P>
@@ -80,7 +97,7 @@ export default function PrivacyPolicy() {
           <P><strong>Help:</strong> Text HELP for assistance or contact us at {CONTACT_EMAIL}.</P>
         </Section>
 
-        <Section title="4. How We Use Your Information">
+        <Section title="5. How We Use Your Information">
           <P>We use the information we collect to:</P>
           <UL items={[
             'Provide, operate, and maintain the Service',
@@ -97,7 +114,7 @@ export default function PrivacyPolicy() {
           ]} />
         </Section>
 
-        <Section title="5. Sharing of Information">
+        <Section title="6. Sharing of Information">
           <P>We do not sell your personal information. We may share your information in the following limited circumstances:</P>
           <P><strong>Service providers:</strong> We share information with third-party vendors who perform services on our behalf, including payment processing (Stripe), cloud hosting, email delivery, analytics, and customer support. These providers are contractually obligated to use your data only as directed by us.</P>
           <P><strong>Financial and compliance:</strong> We may share information with financial institutions, payment processors, and fraud prevention services to process transactions and comply with anti-money-laundering (AML) and Know Your Customer (KYC) requirements.</P>
@@ -106,27 +123,27 @@ export default function PrivacyPolicy() {
           <P><strong>With your consent:</strong> We may share your information in any other way with your explicit consent.</P>
         </Section>
 
-        <Section title="6. Financial Data and Payment Processing">
+        <Section title="7. Financial Data and Payment Processing">
           <P>All payment card data is processed by our third-party payment processor (Stripe, Inc.) and is never stored on our servers. We store only a tokenized reference to your payment method. Stake amounts, race entries, and payout amounts are stored securely in our database and are used only to operate the Service.</P>
           <P>Renno is not a bank, financial institution, or gambling operator. Stakes placed on Renno represent personal financial commitments to fitness goals, not wagers in the legal gambling sense. Users are responsible for understanding the financial implications of participation.</P>
         </Section>
 
-        <Section title="7. Cookies and Tracking Technologies">
+        <Section title="8. Cookies and Tracking Technologies">
           <P>We use cookies, pixel tags, and similar technologies to operate our Service and collect usage information. You can control cookies through your browser settings; however, disabling cookies may limit certain features of the Service.</P>
           <P>We use analytics providers including Google Analytics to understand how users interact with our Service. You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on.</P>
         </Section>
 
-        <Section title="8. Data Retention">
+        <Section title="9. Data Retention">
           <P>We retain your personal information for as long as your account is active or as needed to provide the Service. We also retain information to comply with legal obligations, resolve disputes, and enforce agreements. If you request deletion of your account, we will delete or anonymize your personal data within 30 days, except where retention is required by law or for legitimate business purposes such as fraud prevention.</P>
           <P>Health and fitness data is retained for 12 months after your last race participation and then permanently deleted, unless you request earlier deletion.</P>
         </Section>
 
-        <Section title="9. Data Security">
+        <Section title="10. Data Security">
           <P>We implement commercially reasonable administrative, technical, and physical security measures to protect your information from unauthorized access, use, alteration, or destruction. These measures include encryption in transit (TLS 1.2+), encryption at rest, access controls, and regular security reviews.</P>
           <P>No method of transmission over the Internet or electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee absolute security. In the event of a data breach that affects your rights and freedoms, we will notify you as required by applicable law.</P>
         </Section>
 
-        <Section title="10. Your Rights and Choices">
+        <Section title="11. Your Rights and Choices">
           <P>Depending on your location, you may have the following rights regarding your personal information:</P>
           <UL items={[
             'Access — request a copy of the personal data we hold about you',
@@ -141,23 +158,23 @@ export default function PrivacyPolicy() {
           <P><strong>California residents (CCPA):</strong> You have the right to know what personal information we collect, the right to delete, the right to opt-out of sale (we do not sell personal information), and the right to non-discrimination for exercising your privacy rights.</P>
         </Section>
 
-        <Section title="11. Children's Privacy">
+        <Section title="12. Children's Privacy">
           <P>The Service is not directed to individuals under the age of 18. We do not knowingly collect personal information from children under 18. If we become aware that we have inadvertently collected personal information from a child under 18, we will take steps to delete it promptly. If you believe we have collected information from a child, contact us at {CONTACT_EMAIL}.</P>
         </Section>
 
-        <Section title="12. Third-Party Links and Services">
+        <Section title="13. Third-Party Links and Services">
           <P>The Service may contain links to third-party websites and services (such as Apple Health, Garmin Connect, Fitbit, and WHOOP). We are not responsible for the privacy practices of these third parties. We encourage you to review the privacy policies of any third-party services you connect to the Service.</P>
         </Section>
 
-        <Section title="13. International Data Transfers">
+        <Section title="14. International Data Transfers">
           <P>Renno is based in the United States. If you access the Service from outside the United States, your information may be transferred to, stored, and processed in the United States or other countries where our service providers operate. By using the Service, you consent to the transfer of your information to countries outside your country of residence, which may have different data protection rules.</P>
         </Section>
 
-        <Section title="14. Changes to This Privacy Policy">
+        <Section title="15. Changes to This Privacy Policy">
           <P>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on this page and updating the "Last Updated" date. For significant changes, we will also send an email notification to the address associated with your account. We encourage you to review this policy periodically. Your continued use of the Service after changes become effective constitutes acceptance of the revised policy.</P>
         </Section>
 
-        <Section title="15. Contact Us">
+        <Section title="16. Contact Us">
           <P>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</P>
           <UL items={[
             `Email: ${CONTACT_EMAIL}`,

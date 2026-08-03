@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const LAST_UPDATED = 'July 13, 2026'
+const LAST_UPDATED = 'August 3, 2026'
 const EFFECTIVE_DATE = 'June 20, 2026'
 const COMPANY = 'Renno'
 const CONTACT_EMAIL = 'privacy@rennoapp.com'
@@ -54,14 +54,14 @@ export default function PrivacyPolicy() {
         <Section title="2. Summary — What Renno Collects and Why">
           <P><strong>Information We Collect</strong></P>
           <UL items={[
-            <><strong>Account info:</strong> your phone number (for sign-in) or Apple/Google sign-in identifier, and your username, display name, and avatar.</>,
+            <><strong>Account info:</strong> your phone number or email address (for sign-in), or your Apple/Google sign-in identifier, and your username, display name, and avatar.</>,
             <><strong>Precise location:</strong> GPS location is collected only during an active run you start, to measure your distance, pace, and route. We do not track your location in the background outside of a run.</>,
             <><strong>Health &amp; fitness data:</strong> run distance, duration, pace, and activity you record or import (e.g., from Apple Health, with your permission).</>,
             <><strong>Device identifier:</strong> an app-generated install identifier used for first-party analytics and abuse prevention.</>,
-            <><strong>Purchase history:</strong> your Renno+ / Renno Teams subscription status (via Apple In-App Purchase). We do not receive your payment card details.</>,
+            <><strong>Purchase and payment history:</strong> your Renno+ / Renno Teams subscription status (via Apple In-App Purchase), and your race stakes, entries, and payouts (processed by Stripe). We do not receive or store your payment card details.</>,
           ]} />
           <P><strong>How We Use It</strong></P>
-          <P>To provide run tracking, races and leaderboards, your profile and stats, subscriptions, and safety/anti-cheat features.</P>
+          <P>To provide run tracking, races and leaderboards, stakes and payouts, your profile and stats, subscriptions, and safety/anti-cheat features.</P>
           <P><strong>Analytics</strong></P>
           <P>We use first-party product analytics only to understand how the app is used and improve it. We do not use third-party advertising SDKs, the advertising identifier (IDFA), or any cross-app or cross-site tracking, and we do not sell your data. Raw analytics events are retained for up to 180 days; aggregated, non-identifying statistics may be kept longer.</P>
           <P><strong>Your Choices</strong></P>
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
         <Section title="3. Information We Collect">
           <P><strong>Information you provide directly:</strong></P>
           <UL items={[
-            'Email address (when you join the waitlist or create an account)',
+            'Email address and/or phone number (when you join the waitlist or create an account)',
             'Name and profile information',
             'Payment and financial information (processed securely through our payment partners)',
             'Running goals, weekly mileage targets, and stake amounts you set',
@@ -82,7 +82,7 @@ export default function PrivacyPolicy() {
             'Device identifiers (IP address, device ID, operating system, browser type)',
             'Usage data (pages visited, features used, time spent, clicks)',
             'Log data (access times, error logs, referring URLs)',
-            'Location data (general geographic region, if permitted)',
+            'Precise GPS location, collected only while you have an active run in progress, to measure distance, pace, and route (see Section 2). We do not collect your location in the background outside of a run.',
             'Cookies and similar tracking technologies',
           ]} />
           <P><strong>Health and fitness data:</strong></P>
@@ -125,12 +125,13 @@ export default function PrivacyPolicy() {
 
         <Section title="7. Financial Data and Payment Processing">
           <P>All payment card data is processed by our third-party payment processor (Stripe, Inc.) and is never stored on our servers. We store only a tokenized reference to your payment method. Stake amounts, race entries, and payout amounts are stored securely in our database and are used only to operate the Service.</P>
+          <P>Renno+ and Renno Teams subscriptions are billed through Apple In-App Purchase. Apple processes those transactions and we receive only your subscription status; we do not receive your payment card details for subscription purchases.</P>
           <P>Renno is not a bank, financial institution, or gambling operator. Stakes placed on Renno represent personal financial commitments to fitness goals, not wagers in the legal gambling sense. Users are responsible for understanding the financial implications of participation.</P>
         </Section>
 
         <Section title="8. Cookies and Tracking Technologies">
           <P>We use cookies, pixel tags, and similar technologies to operate our Service and collect usage information. You can control cookies through your browser settings; however, disabling cookies may limit certain features of the Service.</P>
-          <P>We use analytics providers including Google Analytics to understand how users interact with our Service. You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on.</P>
+          <P>We use first-party product analytics only to understand how users interact with our Service. We do not use third-party advertising SDKs, the advertising identifier (IDFA), or any cross-app or cross-site tracking, and we do not sell your data.</P>
         </Section>
 
         <Section title="9. Data Retention">

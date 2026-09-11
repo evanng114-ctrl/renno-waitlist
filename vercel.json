@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/pitch", "destination": "/pitch/", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/app", "destination": "/api/app" },
     { "source": "/terms", "destination": "/terms.html" },

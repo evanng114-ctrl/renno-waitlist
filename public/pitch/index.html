@@ -5,6 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <script src="./support.js"></script>
+<script>
+// Press F to toggle fullscreen presentation (hides the slide rail).
+(function () {
+  function setPresenting(on) {
+    window.postMessage({ __omelette_presenting: on }, '*');
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'f' && e.key !== 'F') return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var el = document.documentElement;
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    } else if (el.requestFullscreen) {
+      el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+      el.webkitRequestFullscreen();
+    } else {
+      setPresenting(true); // no fullscreen API: still hide the rail
+    }
+  });
+  function onChange() {
+    setPresenting(!!(document.fullscreenElement || document.webkitFullscreenElement));
+  }
+  document.addEventListener('fullscreenchange', onChange);
+  document.addEventListener('webkitfullscreenchange', onChange);
+})();
+</script>
 </head>
 <body>
 <x-dc>

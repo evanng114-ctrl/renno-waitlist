@@ -39,6 +39,16 @@
 <title>Renno</title>
 <meta name="robots" content="noindex, nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/evan-face.png">
+<link rel="preload" as="image" href="assets/ali-sm.jpg">
+<link rel="preload" as="image" href="assets/evan-books-sm.jpg">
+<link rel="preload" as="image" href="assets/evan-boxes-sm.jpg">
+<link rel="preload" as="image" href="assets/ali-boxes-sm.jpg">
+<link rel="preload" as="image" href="assets/ali-nyc-store-sm.jpg">
+<link rel="preload" as="image" href="assets/app-races-sm.png">
+<link rel="preload" as="image" href="assets/step3-youwon-sm.png">
+<link rel="preload" as="video" href="assets/step1-recording.mp4" type="video/mp4">
+<link rel="preload" as="video" href="assets/step2-recording.mp4" type="video/mp4">
 <style>
   body { margin: 0; background: #0E0F12; }
   .rn-step { transition: opacity 0.55s ease, transform 0.55s ease; }
@@ -146,8 +156,8 @@
   </div>
   <sc-if value="{{ showDefaultShot }}" hint-placeholder-val="{{ true }}"><img src="assets/app-races-sm.png" alt="Renno app" style="position: absolute; height: 900px; border-radius: 36px; box-shadow: 0 30px 70px rgba(14,15,18,0.25); left: 1296px; top: 116px"></sc-if>
   <sc-if value="{{ showWonShot }}" hint-placeholder-val="{{ false }}"><img src="assets/step3-youwon-sm.png" alt="Race complete — you won" style="position: absolute; height: 900px; border-radius: 36px; box-shadow: 0 30px 70px rgba(14,15,18,0.25); left: 1296px; top: 116px"></sc-if>
-  <sc-if value="{{ showVideo1 }}" hint-placeholder-val="{{ false }}"><video src="assets/step1-recording.mp4" autoPlay="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" onEnded="{{ onVideoEnded }}" style="position: absolute; height: 900px; border-radius: 36px; box-shadow: 0 30px 70px rgba(14,15,18,0.25); left: 1296px; top: 116px; background: #0E0F12; object-fit: cover; aspect-ratio: 396 / 858;"></video></sc-if>
-  <sc-if value="{{ showVideo2 }}" hint-placeholder-val="{{ false }}"><video src="assets/step2-recording.mp4" autoPlay="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" onEnded="{{ onVideoEnded }}" style="position: absolute; height: 900px; border-radius: 36px; box-shadow: 0 30px 70px rgba(14,15,18,0.25); left: 1296px; top: 116px; background: #0E0F12; object-fit: cover; aspect-ratio: 396 / 858;"></video></sc-if>
+  <sc-if value="{{ showVideo1 }}" hint-placeholder-val="{{ false }}"><video ref="{{ videoRef }}" src="assets/step1-recording.mp4" preload="auto" autoPlay="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" onEnded="{{ onVideoEnded }}" onError="{{ onVideoError }}" style="position: absolute; height: 900px; border-radius: 36px; box-shadow: 0 30px 70px rgba(14,15,18,0.25); left: 1296px; top: 116px; background: #0E0F12; object-fit: cover; aspect-ratio: 396 / 858;"></video></sc-if>
+  <sc-if value="{{ showVideo2 }}" hint-placeholder-val="{{ false }}"><video ref="{{ videoRef }}" src="assets/step2-recording.mp4" preload="auto" autoPlay="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" onEnded="{{ onVideoEnded }}" onError="{{ onVideoError }}" style="position: absolute; height: 900px; border-radius: 36px; box-shadow: 0 30px 70px rgba(14,15,18,0.25); left: 1296px; top: 116px; background: #0E0F12; object-fit: cover; aspect-ratio: 396 / 858;"></video></sc-if>
   <div onClick="{{ advanceStep }}" role="button" style="position: absolute; left: 110px; width: 1050px; bottom: 130px; display: flex; flex-direction: column; gap: 58px; cursor: pointer;">
     <div class="rn-step {{ stepClass1 }}" style="display: flex; gap: 40px; align-items: baseline;">
       <div style="font-family: Anton, sans-serif; font-size: 64px; color: #F97316; width: 70px;">1</div>
@@ -743,11 +753,26 @@ class Component extends DCLogic {
     window.addEventListener("keydown", this._onKey);
     this._applyAccent();
     this._patchStage();
-    ["assets/step1-recording.mp4", "assets/step2-recording.mp4"].forEach(src => {
-      fetch(src, { method: "HEAD" }).then(r => {
-        this.setState(st => ({ loadable: { ...st.loadable, [src]: r.ok } }));
-      }).catch(() => this.setState(st => ({ loadable: { ...st.loadable, [src]: false } })));
+    // Warm the browser cache so every image/video is local by the time its slide shows.
+    ["assets/evan-face.png", "assets/ali-sm.jpg", "assets/evan-books-sm.jpg", "assets/evan-boxes-sm.jpg",
+     "assets/ali-boxes-sm.jpg", "assets/ali-nyc-store-sm.jpg", "assets/app-races-sm.png", "assets/step3-youwon-sm.png",
+     "assets/opentable-phone.png"].forEach(src => { const im = new Image(); im.src = src; });
+    this._vcache = ["assets/step1-recording.mp4", "assets/step2-recording.mp4"].map(src => {
+      const v = document.createElement("video"); v.preload = "auto"; v.muted = true; v.src = src; v.load(); return v;
     });
+  }
+  // Solution videos: explicitly start playback each time a step's video mounts.
+  // Autoplay alone is dropped now and then (element recycled mid-transition, or
+  // the browser gates it); calling play() after metadata is reliable.
+  _startVideo(v) {
+    if (!v) return;
+    this._video = v;
+    v.muted = true;
+    const go = () => { const p = v.play(); if (p && p.catch) p.catch(() => setTimeout(() => v.play().catch(() => {}), 250)); };
+    if (v.readyState >= 2) go(); else { v.addEventListener("loadeddata", go, { once: true }); v.load(); }
+    // Safety net: if nothing is playing after 1.5s, retry once more.
+    clearTimeout(this._vwatch);
+    this._vwatch = setTimeout(() => { if (v.isConnected && v.paused && !v.ended) go(); }, 1500);
   }
   // Route deck next/prev through the Solution steps; re-binds the live
   // component pointer on every call (survives hot reloads).
@@ -795,24 +820,29 @@ class Component extends DCLogic {
     if (!active || active.getAttribute("data-label") !== "Team") return;
     const roads = active.querySelectorAll("[data-rn-road]");
     const text = active.querySelector("[data-rn-roads-text]");
-    // Asphalt draws in via dash-offset; the center line is already dashed, so it
-    // reveals with a clip that grows from the top instead.
-    roads.forEach(p => {
-      const len = p.getTotalLength();
-      if (!p.getAttribute("stroke-dasharray")) {
-        p.style.strokeDasharray = len;
-        p.style.strokeDashoffset = len;
-        p.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], { duration: 1100, delay: 350, easing: "cubic-bezier(.4,0,.2,1)", fill: "forwards" });
-      } else {
-        p.animate([{ clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 1100, delay: 350, easing: "cubic-bezier(.4,0,.2,1)", fill: "forwards" });
-      }
+    const stops = active.querySelectorAll("[data-rn-stop]");
+    // Cancel any in-flight run and force the resting (fully visible) state first,
+    // so a dropped or interrupted animation can never leave photos hidden.
+    [...roads, ...stops, text].forEach(el => { if (!el) return; el.getAnimations().forEach(a => a.cancel()); el.style.opacity = ""; el.style.clipPath = ""; el.style.strokeDasharray = ""; el.style.strokeDashoffset = ""; });
+    if (!active.animate) return;
+    // Defer one frame so the section is laid out (getTotalLength needs geometry).
+    requestAnimationFrame(() => {
+      if (!active.hasAttribute("data-deck-active")) return;
+      roads.forEach(p => {
+        const len = p.getTotalLength() || 1;
+        const isAsphalt = !p.getAttribute("stroke-dasharray");
+        const a = isAsphalt
+          ? p.animate([{ strokeDasharray: len, strokeDashoffset: len }, { strokeDasharray: len, strokeDashoffset: 0 }], { duration: 1100, delay: 350, easing: "cubic-bezier(.4,0,.2,1)", fill: "backwards" })
+          : p.animate([{ clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 1100, delay: 350, easing: "cubic-bezier(.4,0,.2,1)", fill: "backwards" });
+        a.onfinish = () => { p.style.strokeDasharray = ""; p.style.strokeDashoffset = ""; p.style.clipPath = ""; };
+      });
+      stops.forEach(el => {
+        const i = +el.getAttribute("data-rn-stop");
+        const rot = el.style.transform;
+        el.animate([{ opacity: 0, transform: rot + " scale(0.85)" }, { opacity: 1, transform: rot }], { duration: 500, delay: 350 + i * 420, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" });
+      });
+      if (text) text.animate([{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "none" }], { duration: 600, delay: 1400, easing: "ease-out", fill: "backwards" });
     });
-    active.querySelectorAll("[data-rn-stop]").forEach(el => {
-      const i = +el.getAttribute("data-rn-stop");
-      const rot = el.style.transform;
-      el.animate([{ opacity: 0, transform: rot + " scale(0.85)" }, { opacity: 1, transform: rot }], { duration: 500, delay: 350 + i * 420, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" });
-    });
-    if (text && text.animate) text.animate([{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "none" }], { duration: 600, delay: 1400, easing: "ease-out", fill: "backwards" });
   }
   // Bottom progress bar: one orange line, fills left→right as the deck advances.
   _progress(stage) {
@@ -898,6 +928,7 @@ class Component extends DCLogic {
     const cls = i => s === 0 ? "" : (s === i ? "rn-on" : (dim ? "rn-dim" : ""));
     const videos = { 1: "assets/step1-recording.mp4", 2: "assets/step2-recording.mp4" };
     const videoSrc = videos[s];
+    // Always render the video on steps 1–2; only fall back to the still if that file actually errored.
     const hasVideo = !!videoSrc && (this.state.loadable[videoSrc] !== false);
     const r = this.state.reveal;
     const rev = i => (r >= i ? "" : "rn-hide");
@@ -906,6 +937,8 @@ class Component extends DCLogic {
       stepClass1: cls(1), stepClass2: cls(2), stepClass3: cls(3),
       showVideo1: hasVideo && s === 1, showVideo2: hasVideo && s === 2,
       showDefaultShot: !hasVideo && s !== 3, showWonShot: !hasVideo && s === 3,
+      videoRef: (v) => this._startVideo(v),
+      onVideoError: (e) => { const src = e && e.target && e.target.getAttribute("src"); if (src) this.setState(st => ({ loadable: { ...st.loadable, [src]: false } })); },
       onVideoEnded: () => { if (this.props.autoAdvanceVideos ?? true) this.setState(st => (st.step > 0 && st.step < 3 ? { step: st.step + 1 } : null)); },
       advanceStep: (e) => {
         e.stopPropagation();
